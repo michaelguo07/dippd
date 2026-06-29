@@ -1019,7 +1019,11 @@
 
       // Clone all cards once so the strip is 2x wide (seamless loop)
       Array.from(rail.children).forEach(card => {
-        rail.appendChild(card.cloneNode(true));
+        const clone = card.cloneNode(true);
+        // Clones must be immediately active and visible (bypass scroll-reveal opacity 0)
+        clone.classList.remove('reveal');
+        clone.classList.add('active');
+        rail.appendChild(clone);
       });
 
       let pos        = 0;
