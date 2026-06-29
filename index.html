@@ -429,20 +429,21 @@
          │  3. PRODUCT SLIDED LINEUP
          └────────────────────────────────────────────── -->
     <section class="py-section-gap overflow-hidden bg-surface-variant select-none" id="products">
-      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex justify-between items-end mb-12">
-        <div class="reveal">
-          <h2 class="font-display text-4xl md:text-5xl font-black text-primary">The Sliced Lineup</h2>
-          <p class="font-body text-lg font-medium text-primary/70 mt-2">Five fruits. One chocolate. Infinite crunch.</p>
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+        <div class="flex justify-between items-end mb-12">
+          <div class="reveal">
+            <h2 class="font-display text-4xl md:text-5xl font-black text-primary">The Sliced Lineup</h2>
+            <p class="font-body text-lg font-medium text-primary/70 mt-2">Five fruits. One chocolate. Infinite crunch.</p>
+          </div>
+          <!-- Pricing Badge -->
+          <div class="reveal hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full border-2 border-primary shadow-[3px_3px_0px_0px_rgba(255,31,94,1)]">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">sell</span>
+            <span class="font-body font-black text-sm uppercase tracking-wide">$5 a bag · 2 for $9</span>
+          </div>
         </div>
-        <!-- Pricing Badge -->
-        <div class="reveal hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full border-2 border-primary shadow-[3px_3px_0px_0px_rgba(255,31,94,1)]">
-          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">sell</span>
-          <span class="font-body font-black text-sm uppercase tracking-wide">$5 a bag · 2 for $9</span>
-        </div>
-      </div>
 
-      <!-- Horizontal scroll rail -->
-      <div id="product-wrapper" class="overflow-hidden select-none" style="cursor:grab;">
+        <!-- Horizontal scroll rail -->
+        <div id="product-wrapper" class="overflow-hidden select-none" style="cursor:grab;">
         <div id="product-rail" class="flex gap-4 md:gap-6 py-4" style="will-change:transform; width:max-content;" role="list">
 
         <!-- Blueberries (Fully Covered) -->
@@ -521,6 +522,7 @@
         </article>
 
         </div>
+      </div>
       </div>
       <p class="text-center font-display text-xs font-bold tracking-widest mt-6 opacity-40 md:hidden">← SWIPE OR DRAG CARDS TO DISCOVER →</p>
     </section>
