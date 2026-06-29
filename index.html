@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Dippd | Half Dipped. Fully Obsessed.</title>
+  <meta name="description" content="Dippd makes freeze-dried fruits artisanal-dipped in chocolate. Blueberries, strawberries, bananas, apples, and mangos. Houston-local snack company by Michael and Timothy Shim. $5 a bag — text us to order!" />
+  <link rel="icon" type="image/png" href="images/icon.png?v=3" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts: Fredoka (bubbly display) & Outfit (clean geometric body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background":                 "#fffdf6", // warm cream white
+            "primary":                    "#32170d", // rich dark cocoa
+            "on-primary":                 "#ffffff",
+            "strawberry-vibrant":         "#ff1f5e", // vibrant pink
+            "mango-orange":               "#ff9f1c", // tropical orange
+            "banana-yellow":              "#fbbf24", // friendly yellow
+            "blueberry-blue":             "#3b82f6", // royal blue
+            "lime-green":                 "#e0fe14", // neon yellow/green
+            "mint-green":                 "#22c55e", // fresh green
+            "accent-purple":              "#8b5cf6", // playful lavender
+            "surface-variant":            "#f7f5ee",
+            "outline-variant":            "#e9dfdc",
+          },
+          fontFamily: {
+            "display": ["Fredoka", "sans-serif"],
+            "body":    ["Outfit", "sans-serif"],
+          },
+          spacing: {
+            "margin-mobile":  "16px",
+            "base":           "8px",
+            "section-gap":    "80px",
+            "stack-md":       "16px",
+            "stack-lg":       "32px",
+            "gutter":         "24px",
+            "container-max":  "1200px",
+          }
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ─── Base Styles ───────────────────────────────────── */
+    body {
+      background-color: #fffdf6;
+      color: #32170d;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* ─── Neo-Brutalist Solid Shadow Buttons & Cards ──────── */
+    .neo-btn {
+      border: 2px solid #32170d;
+      box-shadow: 4px 4px 0px 0px #32170d;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+    }
+    .neo-btn:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px 0px #32170d;
+    }
+    .neo-btn:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0px 0px 0px 0px #32170d;
+    }
+
+    .neo-card {
+      border: 3px solid #32170d;
+      box-shadow: 8px 8px 0px 0px #32170d;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .neo-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0px 0px #32170d;
+    }
+
+    /* ─── Fruit-colored shadow cards ───────────────────── */
+    .neo-card-strawberry {
+      border: 3px solid #32170d;
+      box-shadow: 8px 8px 0px 0px #ff1f5e;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .neo-card-strawberry:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0px 0px #ff1f5e;
+    }
+
+    .neo-card-blueberry {
+      border: 3px solid #32170d;
+      box-shadow: 8px 8px 0px 0px #3b82f6;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .neo-card-blueberry:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0px 0px #3b82f6;
+    }
+
+    .neo-card-banana {
+      border: 3px solid #32170d;
+      box-shadow: 8px 8px 0px 0px #fbbf24;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .neo-card-banana:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0px 0px #fbbf24;
+    }
+
+    .neo-card-apple {
+      border: 3px solid #32170d;
+      box-shadow: 8px 8px 0px 0px #22c55e;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .neo-card-apple:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0px 0px #22c55e;
+    }
+
+    .neo-card-mango {
+      border: 3px solid #32170d;
+      box-shadow: 8px 8px 0px 0px #ff9f1c;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .neo-card-mango:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0px 0px #ff9f1c;
+    }
+
+    /* ─── Infinite CSS Marquee Ticker ────────────────────── */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 25s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* ─── Float animation ───────────────────────────────── */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-15px) rotate(1.5deg); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+
+    /* ─── Pulse animation ───────────────────────────────── */
+    @keyframes pulse-sticker {
+      0%, 100% { transform: scale(1) rotate(6deg); }
+      50%      { transform: scale(1.05) rotate(10deg); }
+    }
+    .animate-sticker { animation: pulse-sticker 3s ease-in-out infinite; }
+
+    /* ─── Scroll reveal ─────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    /* ─── Skip link ─────────────────────────────────────── */
+    .skip-link {
+      position: absolute; top: -999px; left: 1rem;
+      background: #32170d; color: #fff;
+      padding: .5rem 1rem; border-radius: 0 0 8px 8px;
+      font-weight: 700; z-index: 9999;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ─── Hide scrollbar on product rail ────────────────── */
+    .scroll-hide { scrollbar-width: none; -ms-overflow-style: none; }
+    .scroll-hide::-webkit-scrollbar { display: none; }
+
+    /* ─── Mobile drawer ─────────────────────────────────── */
+    #mobile-drawer {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s cubic-bezier(0.22, 1, 0.36, 1),
+                  opacity .3s ease;
+      opacity: 0;
+    }
+    #mobile-drawer.open { max-height: 480px; opacity: 1; }
+
+    /* ─── Hamburger Menu Lines ─────────────────────────── */
+    .ham-line {
+      display: block; width: 22px; height: 2px;
+      background: #32170d; border-radius: 2px;
+      transition: transform .3s ease, opacity .2s ease;
+      transform-origin: center;
+    }
+    #hamburger.open .ham-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    #hamburger.open .ham-line:nth-child(2) { opacity: 0; }
+    #hamburger.open .ham-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── Drag-to-scroll cursor feedback ───────────────────── */
+    #product-rail { cursor: grab; }
+    #product-rail.dragging { cursor: grabbing; }
+    #product-rail.dragging .product-card { pointer-events: none; }
+  </style>
+</head>
+
+<body class="bg-background text-primary selection:bg-strawberry-vibrant selection:text-white">
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ══════════════════════════════════════════════════
+       TOP RUNNING ticker
+  ══════════════════════════════════════════════════ -->
+  <div class="overflow-hidden whitespace-nowrap bg-primary text-white py-2.5 border-b-2 border-primary select-none">
+    <div class="animate-marquee flex gap-8 font-body font-black text-[11px] tracking-widest uppercase">
+      <span>🚀 FIRST BATCH FRESHLY DIPPED & AVAILABLE NOW! ORDER VIA TEXT: (281) 730-4810</span>
+      <span>🍓 100% REAL FRUIT & PREMIUM DARK CHOCOLATE</span>
+      <span>⚡ HOUSTON LOCAL PICKUP & DELIVERY</span>
+      <span>🚀 FIRST BATCH FRESHLY DIPPED & AVAILABLE NOW! ORDER VIA TEXT: (281) 730-4810</span>
+      <span>🍓 100% REAL FRUIT & PREMIUM DARK CHOCOLATE</span>
+      <span>⚡ HOUSTON LOCAL PICKUP & DELIVERY</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       NAV (FLOATING PILL STYLE)
+  ══════════════════════════════════════════════════ -->
+  <header class="fixed top-12 left-0 right-0 z-50 px-margin-mobile md:px-gutter select-none">
+    <nav aria-label="Main navigation" class="max-w-container-max mx-auto">
+      <div class="bg-white/90 backdrop-blur-md rounded-full border-2 border-primary shadow-[4px_4px_0px_0px_#32170d] px-6 h-16 flex justify-between items-center transition-all">
+
+        <!-- Logo -->
+        <a href="#" aria-label="Dippd home" class="font-display text-2xl font-black text-primary tracking-tight">dippd.</a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="#process" class="font-body font-bold text-sm text-primary hover:text-strawberry-vibrant transition-colors">How We Dip</a>
+          <a href="#products" class="font-body font-bold text-sm text-primary hover:text-strawberry-vibrant transition-colors">Our Fruits</a>
+          <a href="#story" class="font-body font-bold text-sm text-primary hover:text-strawberry-vibrant transition-colors">Our Story</a>
+          <a href="#feedback" class="font-body font-bold text-sm text-primary hover:text-strawberry-vibrant transition-colors">Feedback</a>
+          <a href="#find-us" class="font-body font-bold text-sm text-primary hover:text-strawberry-vibrant transition-colors">Order Info</a>
+        </div>
+
+        <!-- Order Button -->
+        <div class="flex items-center gap-4">
+          <a href="tel:2817304810" class="neo-btn bg-strawberry-vibrant text-white px-5 py-2.5 rounded-full font-body font-black text-xs uppercase tracking-wider">
+            Order Now
+          </a>
+          <!-- Mobile Hamburger -->
+          <button id="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" class="md:hidden flex flex-col gap-[5px] p-2">
+            <span class="ham-line"></span>
+            <span class="ham-line"></span>
+            <span class="ham-line"></span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile drawer -->
+      <div id="mobile-drawer" class="md:hidden mt-2 bg-white rounded-3xl border-2 border-primary shadow-[4px_4px_0px_0px_#32170d] p-4 flex flex-col gap-2">
+        <a href="#process" class="mobile-nav-link px-4 py-3 rounded-2xl text-primary hover:bg-surface-variant font-bold transition-all">How We Dip</a>
+        <a href="#products" class="mobile-nav-link px-4 py-3 rounded-2xl text-primary hover:bg-surface-variant font-bold transition-all">Our Fruits</a>
+        <a href="#story" class="mobile-nav-link px-4 py-3 rounded-2xl text-primary hover:bg-surface-variant font-bold transition-all">Our Story</a>
+        <a href="#feedback" class="mobile-nav-link px-4 py-3 rounded-2xl text-primary hover:bg-surface-variant font-bold transition-all">Feedback</a>
+        <a href="#find-us" class="mobile-nav-link px-4 py-3 rounded-2xl text-primary hover:bg-surface-variant font-bold transition-all">Order Info</a>
+        <a href="tel:2817304810" class="mobile-nav-link mt-2 bg-strawberry-vibrant text-white text-center py-3 rounded-full font-black uppercase tracking-wider neo-btn">
+          📞 (281) 730-4810
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ┌──────────────────────────────────────────────
+         │  1. HERO SECTION
+         └────────────────────────────────────────────── -->
+    <section class="relative min-h-screen flex items-center pt-36 pb-16 overflow-hidden select-none">
+      
+      <!-- Big Decorative Shapes -->
+      <div class="absolute top-1/4 -right-16 w-64 h-64 bg-banana-yellow/30 rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="absolute bottom-1/4 -left-16 w-80 h-80 bg-strawberry-vibrant/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+
+        <!-- Left: Headings and CTAs -->
+        <div class="reveal active">
+          <span class="inline-block px-4 py-1.5 rounded-full bg-strawberry-vibrant/10 text-strawberry-vibrant font-body font-black text-xs uppercase tracking-wider mb-6 rotate-[-1deg]">
+            🍫 Freshly Dipped &amp; Delivered in Houston
+          </span>
+          
+          <h1 class="font-display text-5xl md:text-7xl font-black text-primary leading-[1.05] mb-6">
+            The <span class="bg-strawberry-vibrant text-white px-4 py-1 rounded-3xl rotate-[-2deg] inline-block shadow-[4px_4px_0px_0px_#32170d]">crunch</span> you can't resist.
+          </h1>
+          
+          <p class="font-body text-lg md:text-xl font-medium text-primary max-w-lg mb-8 leading-relaxed">
+            Premium freeze-dried fruits meeting artisanal dark chocolate. Half-dipped by hand, made locally by two friends.
+          </p>
+
+          <!-- Pricing Block (Poppi style bento badge) -->
+          <div class="inline-flex items-center gap-4 bg-banana-yellow border-2 border-primary rounded-3xl px-6 py-4 shadow-[4px_4px_0px_0px_#32170d] mb-8 rotate-[1deg]">
+            <div class="text-center">
+              <span class="font-display text-3xl font-black text-primary">$5</span>
+              <span class="block font-body text-[10px] font-black uppercase text-primary/70">Single Bag</span>
+            </div>
+            <div class="h-8 w-[2px] bg-primary/20"></div>
+            <div class="text-center">
+              <span class="font-display text-3xl font-black text-primary">$9</span>
+              <span class="block font-body text-[10px] font-black uppercase text-primary/70">Any 2 Bags</span>
+            </div>
+            <div class="h-8 w-[2px] bg-primary/20"></div>
+            <span class="font-body text-xs font-bold leading-tight max-w-[80px]">Houston Local!</span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="tel:2817304810" class="neo-btn bg-primary text-white px-8 h-16 rounded-full font-body font-black text-lg uppercase tracking-wider flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined">chat</span> Text/Call to Order
+            </a>
+            <a href="#products" class="neo-btn bg-white text-primary border-2 border-primary px-8 h-16 rounded-full font-body font-black text-lg uppercase tracking-wider flex items-center justify-center">
+              See the Lineup
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Floating Product Image with Stickers -->
+        <div class="relative h-[400px] md:h-[600px] flex items-center justify-center">
+          <div class="relative w-full h-full max-w-[480px]">
+            
+            <!-- Hero Image -->
+            <img
+              alt="Dippd assortment of chocolate-dipped freeze-dried fruits"
+              class="w-full h-full object-contain animate-float drop-shadow-[0_20px_50px_rgba(50,23,13,0.15)]"
+              src="images/hero.png"
+            />
+
+            <!-- Sticker 1 (Poppi Badge) -->
+            <div class="absolute top-8 right-0 bg-lime-green text-primary border-2 border-primary rounded-full px-5 py-3 font-display font-black text-sm uppercase tracking-wider animate-sticker shadow-[3px_3px_0px_0px_#32170d]">
+              100% Addictive ⚡
+            </div>
+
+            <!-- Sticker 2 (Fruit Badge) -->
+            <div class="absolute bottom-12 left-0 bg-strawberry-vibrant text-white border-2 border-primary rounded-full w-24 h-24 flex flex-col items-center justify-center text-center font-display font-black text-xs uppercase tracking-tight -rotate-12 shadow-[4px_4px_0px_0px_#32170d] p-3 leading-none">
+              <span>HOUSTON</span>
+              <span class="text-lime-green text-[15px] mt-1">FRESH</span>
+              <span class="text-[9px] mt-1">COWBOY APPROVED</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ┌──────────────────────────────────────────────
+         │  HORIZONTAL FRUIT TICKER (Poppi style)
+         └────────────────────────────────────────────── -->
+    <div class="bg-lime-green py-4 overflow-hidden border-y-3 border-primary whitespace-nowrap select-none">
+      <div class="animate-marquee flex gap-12 font-display text-2xl font-black text-primary uppercase">
+        <span>🍓 Strawberry Slices &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🫐 Whole Blueberries &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🍌 Banana Slices &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🍎 Crispy Apple &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🥭 Golden Mango &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>🍓 Strawberry Slices &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🫐 Whole Blueberries &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🍌 Banana Slices &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🍎 Crispy Apple &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🥭 Golden Mango &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ┌──────────────────────────────────────────────
+         │  2. HOW WE DIP IT (PROCESS)
+         └────────────────────────────────────────────── -->
+    <section class="py-section-gap bg-background" id="process">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+
+        <div class="text-center mb-16 reveal">
+          <h2 class="font-display text-4xl md:text-5xl font-black text-primary mb-4">How We Dip It</h2>
+          <p class="font-body text-lg font-medium text-primary/70">Four simple steps from orchard to fresh bag.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+          <!-- Step 1 -->
+          <div class="reveal bg-[#ffe4e6] border-2 border-primary rounded-[32px] p-8 shadow-[6px_6px_0px_0px_#32170d] group hover:-translate-y-1 transition-all duration-300" style="transition-delay:100ms">
+            <div class="w-16 h-16 bg-strawberry-vibrant text-white rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-[2px_2px_0px_0px_#32170d] border-2 border-primary">
+              <span class="material-symbols-outlined text-[32px]" aria-hidden="true">agriculture</span>
+            </div>
+            <h3 class="font-display text-2xl font-black text-primary mb-3">1. Harvest</h3>
+            <p class="font-body text-primary/80 leading-relaxed">We source only the ripest, most flavorful organic fruits at peak season.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="reveal bg-[#dbeafe] border-2 border-primary rounded-[32px] p-8 shadow-[6px_6px_0px_0px_#32170d] group hover:-translate-y-1 transition-all duration-300" style="transition-delay:200ms">
+            <div class="w-16 h-16 bg-blueberry-blue text-white rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-[2px_2px_0px_0px_#32170d] border-2 border-primary">
+              <span class="material-symbols-outlined text-[32px]" aria-hidden="true">ac_unit</span>
+            </div>
+            <h3 class="font-display text-2xl font-black text-primary mb-3">2. Freeze-Dry</h3>
+            <p class="font-body text-primary/80 leading-relaxed">Advanced low-temp drying locks in nutrients and creates the perfect airy crunch.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="reveal bg-[#f3e8ff] border-2 border-primary rounded-[32px] p-8 shadow-[6px_6px_0px_0px_#32170d] group hover:-translate-y-1 transition-all duration-300" style="transition-delay:300ms">
+            <div class="w-16 h-16 bg-accent-purple text-white rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-[2px_2px_0px_0px_#32170d] border-2 border-primary">
+              <span class="material-symbols-outlined text-[32px]" aria-hidden="true">format_color_fill</span>
+            </div>
+            <h3 class="font-display text-2xl font-black text-primary mb-3">3. Half-Dipped</h3>
+            <p class="font-body text-primary/80 leading-relaxed">We dip half the fruit in dark chocolate so the real fruit flavor shines. Blueberries get fully coated!</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="reveal bg-[#ffedd5] border-2 border-primary rounded-[32px] p-8 shadow-[6px_6px_0px_0px_#32170d] group hover:-translate-y-1 transition-all duration-300" style="transition-delay:400ms">
+            <div class="w-16 h-16 bg-mango-orange text-white rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-[2px_2px_0px_0px_#32170d] border-2 border-primary">
+              <span class="material-symbols-outlined text-[32px]" aria-hidden="true">verified</span>
+            </div>
+            <h3 class="font-display text-2xl font-black text-primary mb-3">4. Hand Pack</h3>
+            <p class="font-body text-primary/80 leading-relaxed">Each batch is hand-checked and packed by us to make sure it's absolutely perfect.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ┌──────────────────────────────────────────────
+         │  3. PRODUCT SLIDED LINEUP
+         └────────────────────────────────────────────── -->
+    <section class="py-section-gap overflow-hidden bg-surface-variant select-none" id="products">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex justify-between items-end mb-12">
+        <div class="reveal">
+          <h2 class="font-display text-4xl md:text-5xl font-black text-primary">The Sliced Lineup</h2>
+          <p class="font-body text-lg font-medium text-primary/70 mt-2">Five fruits. One chocolate. Infinite crunch.</p>
+        </div>
+        <!-- Pricing Badge -->
+        <div class="reveal hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full border-2 border-primary shadow-[3px_3px_0px_0px_rgba(255,31,94,1)]">
+          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">sell</span>
+          <span class="font-body font-black text-sm uppercase tracking-wide">$5 a bag · 2 for $9</span>
+        </div>
+      </div>
+
+      <!-- Horizontal scroll rail -->
+      <div id="product-rail" class="flex overflow-x-auto scroll-hide gap-6 px-margin-mobile md:px-gutter pb-8 select-none" role="list">
+
+        <!-- Blueberries (Fully Covered) -->
+        <article class="product-card min-w-[300px] md:min-w-[360px] snap-center bg-white rounded-[32px] p-6 flex-shrink-0 reveal neo-card-blueberry" role="listitem">
+          <div class="relative h-60 mb-6 rounded-2xl overflow-hidden bg-primary/5 border-2 border-primary">
+            <img class="product-img w-full h-full object-cover" src="images/blueberries.png" alt="Chocolate covered freeze dried blueberries" />
+            <span class="absolute top-4 right-4 px-3 py-1 bg-primary text-white rounded-full font-body font-black text-[9px] uppercase tracking-wider border border-primary">Whole Coated</span>
+          </div>
+          <h3 class="font-display text-2xl font-black text-primary mb-1">Dark Choc Blueberries</h3>
+          <p class="text-strawberry-vibrant text-xs font-extrabold mb-3">🫐 Our only fully-covered fruit!</p>
+          <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">Whole freeze-dried blueberries entirely coated in premium dark chocolate. A sweet-tart crunch pop.</p>
+          <div class="flex justify-between items-center">
+            <span class="font-display text-xl font-black text-primary">$5 / bag</span>
+            <a href="tel:2817304810" class="neo-btn bg-strawberry-vibrant text-white px-5 py-2 rounded-full font-body font-black text-xs uppercase tracking-wider">Order</a>
+          </div>
+        </article>
+
+        <!-- Strawberries -->
+        <article class="product-card min-w-[300px] md:min-w-[360px] snap-center bg-white rounded-[32px] p-6 flex-shrink-0 reveal neo-card-strawberry" role="listitem" style="transition-delay:80ms">
+          <div class="relative h-60 mb-6 rounded-2xl overflow-hidden bg-primary/5 border-2 border-primary">
+            <img class="product-img w-full h-full object-cover" src="images/strawberries.png" alt="Chocolate half-dipped strawberry slices" />
+            <span class="absolute top-4 right-4 px-3 py-1 bg-strawberry-vibrant text-white rounded-full font-body font-black text-[9px] uppercase tracking-wider border border-primary">Best Seller</span>
+          </div>
+          <h3 class="font-display text-2xl font-black text-primary mb-1">Ruby Strawberries</h3>
+          <p class="text-primary/55 text-xs font-bold mb-3">🍓 ½ dipped in dark chocolate</p>
+          <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">Vibrant strawberry slices half-dipped to show off their gorgeous red center. Sweet, tart, and classic.</p>
+          <div class="flex justify-between items-center">
+            <span class="font-display text-xl font-black text-primary">$5 / bag</span>
+            <a href="tel:2817304810" class="neo-btn bg-strawberry-vibrant text-white px-5 py-2 rounded-full font-body font-black text-xs uppercase tracking-wider">Order</a>
+          </div>
+        </article>
+
+        <!-- Bananas -->
+        <article class="product-card min-w-[300px] md:min-w-[360px] snap-center bg-white rounded-[32px] p-6 flex-shrink-0 reveal neo-card-banana" role="listitem" style="transition-delay:160ms">
+          <div class="relative h-60 mb-6 rounded-2xl overflow-hidden bg-primary/5 border-2 border-primary">
+            <img class="product-img w-full h-full object-cover" src="images/banana.png" alt="Chocolate half-dipped banana slices" />
+            <span class="absolute top-4 right-4 px-3 py-1 bg-banana-yellow text-primary rounded-full font-body font-black text-[9px] uppercase tracking-wider border border-primary">Super Creamy</span>
+          </div>
+          <h3 class="font-display text-2xl font-black text-primary mb-1">Velvet Banana</h3>
+          <p class="text-primary/55 text-xs font-bold mb-3">🍌 ½ dipped in dark chocolate</p>
+          <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">Smooth banana slices freeze-dried and dipped halfway. Rich, creamy, and surprisingly light.</p>
+          <div class="flex justify-between items-center">
+            <span class="font-display text-xl font-black text-primary">$5 / bag</span>
+            <a href="tel:2817304810" class="neo-btn bg-strawberry-vibrant text-white px-5 py-2 rounded-full font-body font-black text-xs uppercase tracking-wider">Order</a>
+          </div>
+        </article>
+
+        <!-- Apples -->
+        <article class="product-card min-w-[300px] md:min-w-[360px] snap-center bg-white rounded-[32px] p-6 flex-shrink-0 reveal neo-card-apple" role="listitem" style="transition-delay:240ms">
+          <div class="relative h-60 mb-6 rounded-2xl overflow-hidden bg-primary/5 border-2 border-primary">
+            <img class="product-img w-full h-full object-cover" src="images/apple.png" alt="Chocolate half-dipped apple slices" />
+            <span class="absolute top-4 right-4 px-3 py-1 bg-mint-green text-white rounded-full font-body font-black text-[9px] uppercase tracking-wider border border-primary">Super Crunchy</span>
+          </div>
+          <h3 class="font-display text-2xl font-black text-primary mb-1">Crispy Apple Slices</h3>
+          <p class="text-primary/55 text-xs font-bold mb-3">🍎 ½ dipped in dark chocolate</p>
+          <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">The crunchiest slice in the house. A perfect balance of sweet red apples and chocolate snaps.</p>
+          <div class="flex justify-between items-center">
+            <span class="font-display text-xl font-black text-primary">$5 / bag</span>
+            <a href="tel:2817304810" class="neo-btn bg-strawberry-vibrant text-white px-5 py-2 rounded-full font-body font-black text-xs uppercase tracking-wider">Order</a>
+          </div>
+        </article>
+
+        <!-- Mangos -->
+        <article class="product-card min-w-[300px] md:min-w-[360px] snap-center bg-white rounded-[32px] p-6 flex-shrink-0 reveal neo-card-mango" role="listitem" style="transition-delay:320ms">
+          <div class="relative h-60 mb-6 rounded-2xl overflow-hidden bg-primary/5 border-2 border-primary">
+            <img class="product-img w-full h-full object-cover" src="images/mango.png" alt="Chocolate half-dipped mango chunks" />
+            <span class="absolute top-4 right-4 px-3 py-1 bg-mango-orange text-white rounded-full font-body font-black text-[9px] uppercase tracking-wider border border-primary">Tropical Escape</span>
+          </div>
+          <h3 class="font-display text-2xl font-black text-primary mb-1">Golden Mango</h3>
+          <p class="text-primary/55 text-xs font-bold mb-3">🥭 ½ dipped in dark chocolate</p>
+          <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">Sweet, sun-ripened mango chunks meeting rich dark chocolate. It's like a tropical holiday snack.</p>
+          <div class="flex justify-between items-center">
+            <span class="font-display text-xl font-black text-primary">$5 / bag</span>
+            <a href="tel:2817304810" class="neo-btn bg-strawberry-vibrant text-white px-5 py-2 rounded-full font-body font-black text-xs uppercase tracking-wider">Order</a>
+          </div>
+        </article>
+
+      </div>
+      <p class="text-center font-display text-xs font-bold tracking-widest mt-6 opacity-40 md:hidden">← SWIPE OR DRAG CARDS TO DISCOVER →</p>
+    </section>
+
+    <!-- ┌──────────────────────────────────────────────
+         │  4. WHY DIPPD? (BENTO GRID)
+         └────────────────────────────────────────────── -->
+    <section class="py-section-gap bg-background text-primary" id="benefits">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+        
+        <h2 class="font-display text-4xl md:text-5xl font-black text-primary mb-12 text-center reveal">Why We're Better</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-6 gap-6 auto-rows-[240px]">
+
+          <!-- Nature's Candy -->
+          <div class="md:col-span-4 bg-[#fef9c3] border-2 border-primary rounded-[32px] p-8 flex flex-col justify-end reveal overflow-hidden group shadow-[6px_6px_0px_0px_#32170d] relative" style="transition-delay:60ms">
+            <div class="absolute top-6 right-6">
+              <span class="material-symbols-outlined text-[64px] text-primary/10 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300" aria-hidden="true">eco</span>
+            </div>
+            <h3 class="font-display text-2xl font-black text-primary mb-2">Nature's Candy, Upgraded</h3>
+            <p class="font-body text-primary/85 leading-relaxed max-w-xl">Whole, real fruit only. No purees, no concentrates, no shortcuts. Just pure plant power paired with premium chocolate.</p>
+          </div>
+
+          <!-- 100% Real -->
+          <div class="md:col-span-2 bg-[#ffe4e6] border-2 border-primary rounded-[32px] p-8 flex flex-col justify-end reveal shadow-[6px_6px_0px_0px_#ff1f5e]" style="transition-delay:120ms">
+            <h3 class="font-display text-2xl font-black text-primary mb-2">100% Real</h3>
+            <p class="font-body text-primary/85 leading-relaxed">Fruit + artisanal chocolate. That's the entire ingredient list. Clean label, clean conscience.</p>
+          </div>
+
+          <!-- Half-Dipped -->
+          <div class="md:col-span-3 bg-[#ffedd5] border-2 border-primary rounded-[32px] p-8 flex flex-col justify-end reveal shadow-[6px_6px_0px_0px_#ff9f1c]" style="transition-delay:180ms">
+            <h3 class="font-display text-2xl font-black text-primary mb-2">Half-Dipped Design</h3>
+            <p class="font-body text-primary/85 leading-relaxed">We left half the fruit naked. Why? Because the fruit is the star, and we want you to see the real quality in every bite.</p>
+          </div>
+
+          <!-- Made by Hand -->
+          <div class="md:col-span-3 bg-[#f3e8ff] border-2 border-primary rounded-[32px] p-8 flex flex-col justify-end reveal shadow-[6px_6px_0px_0px_#8b5cf6]" style="transition-delay:240ms">
+            <h3 class="font-display text-2xl font-black text-primary mb-2">Handmade by Friends</h3>
+            <p class="font-body text-primary/85 leading-relaxed">No giant factories. Just Michael and Timothy in a kitchen perfecting the chocolate ratios and sealing every single bag.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ┌──────────────────────────────────────────────
+         │  5. A FUN VIBE
+         └────────────────────────────────────────────── -->
+    <section class="relative py-section-gap overflow-hidden flex items-center bg-[#ffe4e6]/30 border-y-2 border-primary">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Polaroid photo styling -->
+        <div class="order-2 lg:order-1 relative reveal flex justify-center">
+          <div class="bg-white border-2 border-primary p-4 pb-12 rotate-[-3deg] shadow-[8px_8px_0px_0px_#32170d] max-w-[360px] w-full">
+            <div class="w-full aspect-square border-2 border-primary overflow-hidden">
+              <img class="w-full h-full object-cover" src="images/hero.png" alt="Dippd chocolate covered fruit snacks" />
+            </div>
+            <div class="mt-4 text-center font-display text-xl font-black text-primary">
+              crunch time! 🍫✨
+            </div>
+          </div>
+          <!-- Tiny floating sticker badge -->
+          <div class="absolute -bottom-6 right-6 bg-banana-yellow border-2 border-primary rounded-full px-4 py-2 font-display font-black text-xs uppercase tracking-wider rotate-[10deg] shadow-[3px_3px_0px_0px_#32170d] animate-sticker">
+            Snack of 2026 💥
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2 reveal" style="transition-delay:200ms">
+          <h2 class="font-display text-4xl md:text-5xl font-black text-primary mb-6">Better for you, better for the vibe.</h2>
+          <p class="font-body text-lg text-primary/80 mb-8 leading-relaxed">
+            Dippd isn't just a snack — it's a whole mood. Perfect for study sessions, game nights, hiking, or rewarding yourself after a long day. We bring the crunch to your daily flow.
+          </p>
+          <ul class="space-y-4 font-body font-bold text-primary">
+            <li class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-strawberry-vibrant font-black" aria-hidden="true">check_circle</span> Shelf stable for 12+ months
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-mango-orange font-black" aria-hidden="true">check_circle</span> Resealable, go-anywhere bags
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-accent-purple font-black" aria-hidden="true">check_circle</span> Less than 150 calories per serving
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ┌──────────────────────────────────────────────
+         │  6. OUR STORY
+         └────────────────────────────────────────────── -->
+    <section class="py-section-gap bg-background" id="story">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+        <div class="bg-[#fdf8e6] border-3 border-primary rounded-[40px] p-8 md:p-12 shadow-[8px_8px_0px_0px_#32170d] max-w-4xl mx-auto reveal text-center relative">
+          
+          <!-- Sticky Notes Style Badge -->
+          <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-strawberry-vibrant text-white border-2 border-primary px-6 py-2 rounded-full font-display font-black text-sm uppercase tracking-wider rotate-[-1deg] shadow-[2px_2px_0px_0px_#32170d]">
+            Founder Story
+          </div>
+
+          <div class="max-w-2xl mx-auto mt-4">
+            <h2 class="font-display text-3xl md:text-4xl font-black text-primary mb-6">Born from a Late-Night Experiment</h2>
+            <p class="font-body text-base md:text-lg text-primary/80 mb-6 leading-relaxed">
+              We're two friends — **Michael** and **Timothy Shim** — who had a simple question late one night: <em>Why can't healthy fruit snacks taste like an actual dessert?</em>
+            </p>
+            <p class="font-body text-base md:text-lg text-primary/80 mb-8 leading-relaxed">
+              We grabbed a bag of freeze-dried strawberries, melted some high-quality dark chocolate, and dipped them halfway. The contrast of the airy, tart fruit crunch with the rich cocoa snap was pure magic. We knew we had to share it.
+            </p>
+            <p class="font-body text-sm font-bold text-strawberry-vibrant mb-10">
+              ⚡ This is our very first batch! We're selling locally and we'd love for you to try it and tell us what you think.
+            </p>
+
+            <div class="h-[2px] bg-primary/10 max-w-xs mx-auto mb-10"></div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div class="bg-white border-2 border-primary rounded-2xl p-4 shadow-[3px_3px_0px_0px_#32170d]">
+                <p class="font-display text-3xl font-black text-strawberry-vibrant">5</p>
+                <p class="font-body text-[10px] font-black text-primary/60 uppercase tracking-widest mt-1">Fruits</p>
+              </div>
+              <div class="bg-white border-2 border-primary rounded-2xl p-4 shadow-[3px_3px_0px_0px_#32170d]">
+                <p class="font-display text-3xl font-black text-blueberry-blue">1</p>
+                <p class="font-body text-[10px] font-black text-primary/60 uppercase tracking-widest mt-1">Chocolate</p>
+              </div>
+              <div class="bg-white border-2 border-primary rounded-2xl p-4 shadow-[3px_3px_0px_0px_#32170d]">
+                <p class="font-display text-3xl font-black text-mango-orange">2</p>
+                <p class="font-body text-[10px] font-black text-primary/60 uppercase tracking-widest mt-1">Founders</p>
+              </div>
+              <div class="bg-white border-2 border-primary rounded-2xl p-4 shadow-[3px_3px_0px_0px_#32170d]">
+                <p class="font-display text-3xl font-black text-accent-purple">∞</p>
+                <p class="font-body text-[10px] font-black text-primary/60 uppercase tracking-widest mt-1">Crunch</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ┌──────────────────────────────────────────────
+         │  7. TRY IT & TELL US (FEEDBACK + REVIEWS CAROUSEL)
+         └────────────────────────────────────────────── -->
+    <section class="py-section-gap bg-surface-variant border-y-2 border-primary overflow-hidden" id="feedback">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+
+        <div class="max-w-2xl mx-auto text-center reveal mb-10">
+          <span class="inline-block px-4 py-1 bg-accent-purple text-white border-2 border-primary rounded-full font-display font-black text-xs uppercase tracking-wider mb-4 rotate-[-1deg] shadow-[2px_2px_0px_0px_#32170d]">
+            💬 We need your taste buds!
+          </span>
+          <h2 class="font-display text-4xl md:text-5xl font-black text-primary mb-4">What Dipprs Are Saying</h2>
+          <p class="font-body text-lg font-medium text-primary/70">
+            We just launched our first batch. Check out what early tasters say, and click below to leave your feedback!
+          </p>
+        </div>
+
+        <!-- Infinite Speech-Bubble Reviews Carousel -->
+        <div id="reviews-wrapper" class="overflow-hidden mt-6 mb-12 select-none" style="cursor:grab;">
+          <div id="reviews-rail" class="flex gap-6 py-4" style="will-change:transform; width:max-content;">
+
+            <!-- 1: Sarah J. — Strawberries (Pink Bubble) -->
+            <div class="flex-shrink-0 w-[300px] md:w-[350px]">
+              <div class="relative bg-[#ffe4e6] border-2 border-primary rounded-[32px] p-6 shadow-[4px_4px_0px_0px_#32170d]">
+                <div class="flex text-mango-orange mb-3" aria-label="5 stars">
+                  <span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span>
+                </div>
+                <p class="font-body text-sm font-bold text-primary leading-relaxed">"Nothing matches the crunch of these strawberries. It's like eating a chocolate cloud."</p>
+                <!-- Bubble pointer -->
+                <div class="absolute bottom-[-8px] left-8 w-4 h-4 bg-[#ffe4e6] border-r-2 border-b-2 border-primary rotate-45"></div>
+              </div>
+              <div class="flex items-center gap-3 mt-4 px-4">
+                <div class="w-10 h-10 rounded-full border-2 border-primary bg-primary text-white flex items-center justify-center font-display font-bold text-sm">SJ</div>
+                <div><p class="font-body font-black text-xs text-primary">Sarah J.</p><p class="text-[10px] text-primary/60 font-bold uppercase">🍓 Strawberries</p></div>
+              </div>
+            </div>
+
+            <!-- 2: Michael T. — Mango (Yellow Bubble) -->
+            <div class="flex-shrink-0 w-[300px] md:w-[350px]">
+              <div class="relative bg-[#fef9c3] border-2 border-primary rounded-[32px] p-6 shadow-[4px_4px_0px_0px_#32170d]">
+                <div class="flex text-mango-orange mb-3" aria-label="5 stars">
+                  <span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span>
+                </div>
+                <p class="font-body text-sm font-bold text-primary leading-relaxed">"The mango ones are dangerous. Finished the whole bag in five minutes. Highly recommend 2 bags!"</p>
+                <div class="absolute bottom-[-8px] left-8 w-4 h-4 bg-[#fef9c3] border-r-2 border-b-2 border-primary rotate-45"></div>
+              </div>
+              <div class="flex items-center gap-3 mt-4 px-4">
+                <div class="w-10 h-10 rounded-full border-2 border-primary bg-primary text-white flex items-center justify-center font-display font-bold text-sm">MT</div>
+                <div><p class="font-body font-black text-xs text-primary">Michael T.</p><p class="text-[10px] text-primary/60 font-bold uppercase">🥭 Mango</p></div>
+              </div>
+            </div>
+
+            <!-- 3: Emma R. — Dark chocolate (Purple Bubble) -->
+            <div class="flex-shrink-0 w-[300px] md:w-[350px]">
+              <div class="relative bg-[#f3e8ff] border-2 border-primary rounded-[32px] p-6 shadow-[4px_4px_0px_0px_#32170d]">
+                <div class="flex text-mango-orange mb-3" aria-label="5 stars">
+                  <span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span>
+                </div>
+                <p class="font-body text-sm font-bold text-primary leading-relaxed">"Finally a healthy treat that actually tastes like dessert. The dark chocolate coating is high-quality."</p>
+                <div class="absolute bottom-[-8px] left-8 w-4 h-4 bg-[#f3e8ff] border-r-2 border-b-2 border-primary rotate-45"></div>
+              </div>
+              <div class="flex items-center gap-3 mt-4 px-4">
+                <div class="w-10 h-10 rounded-full border-2 border-primary bg-primary text-white flex items-center justify-center font-display font-bold text-sm">ER</div>
+                <div><p class="font-body font-black text-xs text-primary">Emma R.</p><p class="text-[10px] text-primary/60 font-bold uppercase">🍓 Strawberries</p></div>
+              </div>
+            </div>
+
+            <!-- 4: Alex K. — Blueberries (Blue Bubble) -->
+            <div class="flex-shrink-0 w-[300px] md:w-[350px]">
+              <div class="relative bg-[#dbeafe] border-2 border-primary rounded-[32px] p-6 shadow-[4px_4px_0px_0px_#32170d]">
+                <div class="flex text-mango-orange mb-3" aria-label="5 stars">
+                  <span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span>
+                </div>
+                <p class="font-body text-sm font-bold text-primary leading-relaxed">"The blueberries are wild! A burst of tart fruit encased in rich dark chocolate. Totally hooked."</p>
+                <div class="absolute bottom-[-8px] left-8 w-4 h-4 bg-[#dbeafe] border-r-2 border-b-2 border-primary rotate-45"></div>
+              </div>
+              <div class="flex items-center gap-3 mt-4 px-4">
+                <div class="w-10 h-10 rounded-full border-2 border-primary bg-primary text-white flex items-center justify-center font-display font-bold text-sm">AK</div>
+                <div><p class="font-body font-black text-xs text-primary">Alex K.</p><p class="text-[10px] text-primary/60 font-bold uppercase">🫐 Blueberries</p></div>
+              </div>
+            </div>
+
+            <!-- 5: Jordan L. — Apple (Orange Bubble) -->
+            <div class="flex-shrink-0 w-[300px] md:w-[350px]">
+              <div class="relative bg-[#ffedd5] border-2 border-primary rounded-[32px] p-6 shadow-[4px_4px_0px_0px_#32170d]">
+                <div class="flex text-mango-orange mb-3" aria-label="5 stars">
+                  <span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span>
+                </div>
+                <p class="font-body text-sm font-bold text-primary leading-relaxed">"The apple slices are my favorite! Super crisp with a perfect dark chocolate coat. My coworkers keep stealing them."</p>
+                <div class="absolute bottom-[-8px] left-8 w-4 h-4 bg-[#ffedd5] border-r-2 border-b-2 border-primary rotate-45"></div>
+              </div>
+              <div class="flex items-center gap-3 mt-4 px-4">
+                <div class="w-10 h-10 rounded-full border-2 border-primary bg-primary text-white flex items-center justify-center font-display font-bold text-sm">JL</div>
+                <div><p class="font-body font-black text-xs text-primary">Jordan L.</p><p class="text-[10px] text-primary/60 font-bold uppercase">🍎 Apple</p></div>
+              </div>
+            </div>
+
+            <!-- 6: Priya M. — Banana (Pink Bubble) -->
+            <div class="flex-shrink-0 w-[300px] md:w-[350px]">
+              <div class="relative bg-[#ffe4e6] border-2 border-primary rounded-[32px] p-6 shadow-[4px_4px_0px_0px_#32170d]">
+                <div class="flex text-mango-orange mb-3" aria-label="5 stars">
+                  <span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span>
+                </div>
+                <p class="font-body text-sm font-bold text-primary leading-relaxed">"Bananas dipped in dark chocolate? Pure perfection. Light and sweet. I'm already on my third bag."</p>
+                <div class="absolute bottom-[-8px] left-8 w-4 h-4 bg-[#ffe4e6] border-r-2 border-b-2 border-primary rotate-45"></div>
+              </div>
+              <div class="flex items-center gap-3 mt-4 px-4">
+                <div class="w-10 h-10 rounded-full border-2 border-primary bg-primary text-white flex items-center justify-center font-display font-bold text-sm">PM</div>
+                <div><p class="font-body font-black text-xs text-primary">Priya M.</p><p class="text-[10px] text-primary/60 font-bold uppercase">🍌 Banana</p></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Feedback Form Callout -->
+        <div class="text-center reveal">
+          <p class="font-body text-lg font-bold text-primary/70 mb-6">Bought a bag? Tell us your thoughts!</p>
+          <a id="feedback-btn"
+             href="https://docs.google.com/forms/d/e/1FAIpQLScVAN7t5SP-nsBPqnw085-t6jkTP6iA66AwhN5-D_9RAkD3EQ/viewform?usp=header"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="neo-btn inline-flex items-center gap-3 bg-strawberry-vibrant text-white px-10 py-5 rounded-full font-body font-black text-lg uppercase tracking-wider">
+            <span class="material-symbols-outlined" aria-hidden="true">rate_review</span>
+            Leave Us Feedback
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">open_in_new</span>
+          </a>
+          <p class="mt-4 font-body text-xs text-primary/50 font-bold">Takes less than 90 seconds · shaping our next batch!</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ┌──────────────────────────────────────────────
+         │  8. FIND US / ORDER STEPS
+         └────────────────────────────────────────────── -->
+    <section class="py-section-gap bg-background" id="find-us">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+
+        <div class="text-center mb-16 reveal">
+          <h2 class="font-display text-4xl md:text-5xl font-black text-primary mb-3">How to Order</h2>
+          <p class="font-body text-lg font-medium text-primary/70">Local Houston pickup &amp; delivery — keep it easy!</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <!-- Step 1 (Text) -->
+          <div class="reveal bg-white border-2 border-primary rounded-[32px] p-8 text-center shadow-[6px_6px_0px_0px_#32170d] relative" style="transition-delay:60ms">
+            <div class="w-16 h-16 bg-[#ffe4e6] border-2 border-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <span class="material-symbols-outlined text-[32px] text-primary" aria-hidden="true">smartphone</span>
+            </div>
+            <h3 class="font-display text-2xl font-black text-primary mb-3">1. Text Us</h3>
+            <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">Tell us your name, which fruits you want, and how many bags you need.</p>
+            <a href="sms:2817304810" class="neo-btn inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-body font-black text-xs uppercase tracking-wider">
+              Text: 281-730-4810
+            </a>
+          </div>
+
+          <!-- Step 2 (Pickup) -->
+          <div class="reveal bg-white border-2 border-primary rounded-[32px] p-8 text-center shadow-[6px_6px_0px_0px_#32170d] relative" style="transition-delay:130ms">
+            <div class="w-16 h-16 bg-[#dbeafe] border-2 border-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <span class="material-symbols-outlined text-[32px] text-primary" aria-hidden="true">location_on</span>
+            </div>
+            <h3 class="font-display text-2xl font-black text-primary mb-3">2. Coordinate</h3>
+            <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">We will coordinate a quick local pickup location or drop-off spot in the Houston area.</p>
+            <span class="inline-block bg-[#dbeafe] border-2 border-primary text-primary px-4 py-2 rounded-full font-body font-black text-[10px] uppercase tracking-wider">
+              Houston, TX
+            </span>
+          </div>
+
+          <!-- Step 3 (Online) -->
+          <div class="reveal bg-white border-2 border-primary rounded-[32px] p-8 text-center shadow-[6px_6px_0px_0px_#32170d] relative" style="transition-delay:200ms">
+            <div class="w-16 h-16 bg-[#ffedd5] border-2 border-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <span class="material-symbols-outlined text-[32px] text-primary" aria-hidden="true">language</span>
+            </div>
+            <h3 class="font-display text-2xl font-black text-primary mb-3">3. Online Soon</h3>
+            <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">We're setting up the domain dippd.com for credit card orders. Keep an eye out!</p>
+            <span class="inline-block bg-[#ffedd5] border-2 border-primary text-primary px-4 py-2 rounded-full font-body font-black text-[10px] uppercase tracking-wider">
+              dippd.com
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Big Phone Contact Banner -->
+        <div class="text-center mt-16 reveal">
+          <a href="tel:2817304810" class="neo-btn inline-flex items-center gap-3 bg-strawberry-vibrant text-white px-10 py-5 rounded-full font-body font-black text-lg uppercase tracking-wider">
+            📞 Call to order: (281) 730-4810
+          </a>
+          <p class="mt-4 font-body font-bold text-sm text-primary/60">$5 a bag · 2 bags for $9 · fresh &amp; handmade</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ┌──────────────────────────────────────────────
+         │  9. SHOP NOW / GET DIPPD CTA
+         └────────────────────────────────────────────── -->
+    <section class="relative py-24 bg-primary text-white overflow-hidden border-t-2 border-primary">
+      <div class="absolute inset-0 bg-[#32170d] opacity-95"></div>
+      
+      <!-- Tiny decor circles -->
+      <div class="absolute top-1/4 left-10 w-32 h-32 bg-strawberry-vibrant/25 rounded-full blur-[80px] pointer-events-none"></div>
+      <div class="absolute bottom-1/4 right-10 w-32 h-32 bg-lime-green/15 rounded-full blur-[80px] pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center reveal">
+        <h2 class="font-display text-5xl md:text-6xl font-black mb-6 leading-tight">Ready to get crunching?</h2>
+        <p class="font-body text-lg md:text-xl font-medium text-white/80 mb-10 max-w-xl mx-auto">
+          Our first batch is freshly dippd. Send us a text, grab a bag, and tell us your favorite fruit flavor.
+        </p>
+        
+        <a href="sms:2817304810" class="neo-btn inline-block bg-strawberry-vibrant text-white border-2 border-primary px-12 py-6 rounded-full font-display text-2xl font-black tracking-wide uppercase hover:scale-105 active:scale-95 transition-all mb-8">
+          Get Dippd Now →
+        </a>
+
+        <div class="flex flex-wrap justify-center gap-8 font-body font-bold text-xs uppercase tracking-widest text-white/60">
+          <span class="flex items-center gap-2">📍 Houston Local</span>
+          <span class="flex items-center gap-2">🤝 2 Friends</span>
+          <span class="flex items-center gap-2">🍓 100% Real Fruit</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════ -->
+  <footer class="w-full bg-white border-t-3 border-primary py-16 select-none">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 md:grid-cols-4 gap-12">
+
+      <!-- Brand -->
+      <div class="md:col-span-1">
+        <p class="font-display text-3xl font-black text-primary mb-4">dippd.</p>
+        <p class="font-body text-sm text-primary/75 mb-6 leading-relaxed">
+          Freeze-dried fruits dipped in artisanal chocolate. Made by hand in Houston, Texas.
+        </p>
+        <a href="tel:2817304810" class="text-strawberry-vibrant font-black text-sm hover:underline block mb-4">
+          📞 (281) 730-4810
+        </a>
+        <div class="flex space-x-4">
+          <a class="text-primary hover:text-strawberry-vibrant transition-all hover:scale-110" href="#" aria-label="TikTok"><span class="material-symbols-outlined" aria-hidden="true">face_nod</span></a>
+          <a class="text-primary hover:text-strawberry-vibrant transition-all hover:scale-110" href="#" aria-label="Instagram"><span class="material-symbols-outlined" aria-hidden="true">photo_camera</span></a>
+        </div>
+      </div>
+
+      <!-- Fruits links -->
+      <div class="flex flex-col space-y-3">
+        <p class="font-display text-lg font-black text-primary mb-2 uppercase tracking-wide">Our Fruits</p>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#products">🫐 Blueberries</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#products">🍓 Strawberries</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#products">🍌 Banana Slices</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#products">🍎 Apple Slices</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#products">🥭 Mango Chunks</a>
+      </div>
+
+      <!-- Company links -->
+      <div class="flex flex-col space-y-3">
+        <p class="font-display text-lg font-black text-primary mb-2 uppercase tracking-wide">Explore</p>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#story">Our Story</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#process">How It's Dipped</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#feedback">Your Feedback</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#find-us">How to Order</a>
+      </div>
+
+      <!-- Email News -->
+      <div>
+        <p class="font-display text-lg font-black text-primary mb-4 uppercase tracking-wide">Stay Sweet</p>
+        <p class="font-body text-sm text-primary/75 mb-4 leading-relaxed">
+          Be the first to hear about flavor drops and fresh batch delivery dates!
+        </p>
+        <div class="relative">
+          <input
+            id="footer-email"
+            class="w-full bg-[#f7f5ee] border-2 border-primary rounded-full py-3 px-6 text-primary placeholder:text-primary/45 focus:outline-none focus:ring-2 focus:ring-strawberry-vibrant transition-all font-body font-bold text-sm"
+            placeholder="your@email.com"
+            type="email"
+            autocomplete="email"
+          />
+          <button type="button" aria-label="Subscribe" class="absolute right-2 top-1.5 bg-strawberry-vibrant border-2 border-primary text-white p-1.5 rounded-full hover:bg-strawberry-vibrant/90 transition-colors">
+            <span class="material-symbols-outlined text-[16px]" aria-hidden="true">send</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sub Footer -->
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-8 border-t-2 border-primary/10 mt-12 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-body font-bold text-xs text-primary/60">© 2026 Dippd. Handmade in Houston, TX. All rights reserved.</p>
+      <p class="font-body font-bold text-xs text-primary/40">dippd.com coming soon</p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════════ -->
+  <script>
+    /* ─── Scroll Reveal ─────────────────────────────────── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      if (!el.classList.contains('active')) revealObserver.observe(el);
+    });
+
+    /* ─── Smooth Scroll with Offset ────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const offset = 90;
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.scrollY - offset,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    /* ─── Mobile Nav Drawer Toggle ─────────────────────── */
+    const hamburger    = document.getElementById('hamburger');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileDrawer.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ─── Drag-to-scroll on product rail ───────────────────── */
+    const rail = document.getElementById('product-rail');
+    let isDragging = false;
+    let lastX      = 0;
+
+    // Remove snap permanently so it never auto-jumps to a card
+    rail.classList.remove('snap-x', 'snap-mandatory');
+
+    rail.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      lastX      = e.pageX;
+      rail.classList.add('dragging');
+      e.preventDefault();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      rail.scrollLeft -= (e.pageX - lastX);
+      lastX = e.pageX;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      rail.classList.remove('dragging');
+    });
+
+    /* ─── Infinite auto-rotating reviews carousel ───────────── */
+    (function () {
+      const wrapper    = document.getElementById('reviews-wrapper');
+      const reviewRail = document.getElementById('reviews-rail');
+      if (!wrapper || !reviewRail) return;
+
+      // Clone all cards once so the strip is 2x wide (seamless loop)
+      Array.from(reviewRail.children).forEach(card => {
+        reviewRail.appendChild(card.cloneNode(true));
+      });
+
+      let pos         = 0;
+      let halfWidth   = 0;
+      let revDragging = false;  // click+drag -> track mouse
+      let revLastX    = 0;
+      const SPEED     = 0.5;    // px per frame
+
+      // Wait one frame to measure width
+      requestAnimationFrame(() => {
+        halfWidth = reviewRail.scrollWidth / 2;
+      });
+
+      function loop() {
+        if (!revDragging) pos += SPEED;
+        if (halfWidth > 0 && pos >= halfWidth) pos -= halfWidth;
+        if (pos < 0) pos += halfWidth;
+        reviewRail.style.transform = `translateX(${-pos}px)`;
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
+
+      // Click+drag -> track mouse
+      wrapper.addEventListener('mousedown', (e) => {
+        revDragging = true;
+        revLastX    = e.pageX;
+        wrapper.style.cursor = 'grabbing';
+        e.preventDefault();
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!revDragging) return;
+        pos     -= (e.pageX - revLastX);
+        revLastX = e.pageX;
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!revDragging) return;
+        revDragging          = false;
+        wrapper.style.cursor = 'grab';
+      });
+    })();
+  </script>
+
+</body>
+</html>
