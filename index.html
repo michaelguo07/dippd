@@ -1028,10 +1028,11 @@
       let lastX      = 0;
       const SPEED    = 0.3; // Glide slightly slower for readability
 
-      // Wait one frame to measure width
-      requestAnimationFrame(() => {
+      // Use ResizeObserver to measure width dynamically (handles image loads and screen resizing)
+      const resizeObserver = new ResizeObserver(() => {
         halfWidth = rail.scrollWidth / 2;
       });
+      resizeObserver.observe(rail);
 
       function loop() {
         if (!isDragging) pos += SPEED;
@@ -1080,10 +1081,11 @@
       let revLastX    = 0;
       const SPEED     = 0.5;    // px per frame
 
-      // Wait one frame to measure width
-      requestAnimationFrame(() => {
+      // Use ResizeObserver to measure width dynamically (handles resizing)
+      const resizeObserver = new ResizeObserver(() => {
         halfWidth = reviewRail.scrollWidth / 2;
       });
+      resizeObserver.observe(reviewRail);
 
       function loop() {
         if (!revDragging) pos += SPEED;
