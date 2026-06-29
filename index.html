@@ -442,7 +442,8 @@
       </div>
 
       <!-- Horizontal scroll rail -->
-      <div id="product-rail" class="flex overflow-x-auto scroll-hide gap-4 md:gap-6 px-margin-mobile md:px-gutter pb-8 select-none" role="list">
+      <div id="product-wrapper" class="overflow-hidden select-none" style="cursor:grab;">
+        <div id="product-rail" class="flex gap-4 md:gap-6 py-4" style="will-change:transform; width:max-content;" role="list">
 
         <!-- Blueberries (Fully Covered) -->
         <article class="product-card w-[260px] md:w-[360px] min-w-[260px] md:min-w-[360px] snap-center bg-white rounded-[32px] p-5 md:p-6 flex-shrink-0 reveal neo-card-blueberry" role="listitem">
@@ -519,6 +520,7 @@
           </div>
         </article>
 
+        </div>
       </div>
       <p class="text-center font-display text-xs font-bold tracking-widest mt-6 opacity-40 md:hidden">← SWIPE OR DRAG CARDS TO DISCOVER →</p>
     </section>
@@ -1005,31 +1007,57 @@
     });
 
     /* ─── Drag-to-scroll on product rail ───────────────────── */
-    const rail = document.getElementById('product-rail');
-    let isDragging = false;
-    let lastX      = 0;
+    /* ─── Infinite auto-rotating product lineup carousel ────── */
+    (function () {
+      const wrapper = document.getElementById('product-wrapper');
+      const rail    = document.getElementById('product-rail');
+      if (!wrapper || !rail) return;
 
-    // Remove snap permanently so it never auto-jumps to a card
-    rail.classList.remove('snap-x', 'snap-mandatory');
+      // Clone all cards once so the strip is 2x wide (seamless loop)
+      Array.from(rail.children).forEach(card => {
+        rail.appendChild(card.cloneNode(true));
+      });
 
-    rail.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      lastX      = e.pageX;
-      rail.classList.add('dragging');
-      e.preventDefault();
-    });
+      let pos        = 0;
+      let halfWidth  = 0;
+      let isDragging = false;
+      let lastX      = 0;
+      const SPEED    = 0.3; // Glide slightly slower for readability
 
-    window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      rail.scrollLeft -= (e.pageX - lastX);
-      lastX = e.pageX;
-    });
+      // Wait one frame to measure width
+      requestAnimationFrame(() => {
+        halfWidth = rail.scrollWidth / 2;
+      });
 
-    window.addEventListener('mouseup', () => {
-      if (!isDragging) return;
-      isDragging = false;
-      rail.classList.remove('dragging');
-    });
+      function loop() {
+        if (!isDragging) pos += SPEED;
+        if (halfWidth > 0 && pos >= halfWidth) pos -= halfWidth;
+        if (pos < 0) pos += halfWidth;
+        rail.style.transform = `translateX(${-pos}px)`;
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
+
+      // Click+drag -> track mouse
+      wrapper.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        lastX      = e.pageX;
+        wrapper.style.cursor = 'grabbing';
+        e.preventDefault();
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        pos  -= (e.pageX - lastX);
+        lastX = e.pageX;
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging           = false;
+        wrapper.style.cursor = 'grab';
+      });
+    })();
 
     /* ─── Infinite auto-rotating reviews carousel ───────────── */
     (function () {
