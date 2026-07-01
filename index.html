@@ -1123,5 +1123,32 @@
     })();
   </script>
 
+  <!-- Clean URLs helper for live site -->
+  <script>
+    if (window.location.protocol.startsWith('http')) {
+      // 1. Strip index.html from URL path in the address bar if present
+      if (window.location.pathname.endsWith('/index.html')) {
+        const newPath = window.location.pathname.slice(0, -10) + window.location.search + window.location.hash;
+        window.history.replaceState(null, '', newPath);
+      }
+      
+      // 2. Clean up navbar/footer links on page load
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href) {
+          if (href.startsWith('index.html#')) {
+            link.setAttribute('href', href.replace('index.html#', '/#'));
+          } else if (href === 'index.html') {
+            link.setAttribute('href', '/');
+          } else if (href === 'about.html') {
+            link.setAttribute('href', '/about');
+          } else if (href === 'reviews.html') {
+            link.setAttribute('href', '/reviews');
+          }
+        }
+      });
+    }
+  </script>
+
 </body>
 </html>
