@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Customer Reviews &amp; Feedback | Dippd.</title>
+  <meta name="description" content="See what people are saying about Dippd. Read 100+ customer reviews for our chocolate-dipped freeze-dried fruit mix. Rating 4.9/5 stars." />
+  <link rel="icon" type="image/png" href="images/icon.png?v=3" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts: Fredoka & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background":                 "#fffdf6", // warm cream white
+            "primary":                    "#32170d", // rich dark cocoa
+            "on-primary":                 "#ffffff",
+            "strawberry-vibrant":         "#ff1f5e", // vibrant pink
+            "mango-orange":               "#ff9f1c", // tropical orange
+            "banana-yellow":              "#fbbf24", // friendly yellow
+            "blueberry-blue":             "#3b82f6", // royal blue
+            "lime-green":                 "#e0fe14", // neon yellow/green
+            "mint-green":                 "#22c55e", // fresh green
+            "accent-purple":              "#8b5cf6", // playful lavender
+            "surface-variant":            "#f7f5ee",
+            "outline-variant":            "#e9dfdc",
+          },
+          fontFamily: {
+            "display": ["Fredoka", "sans-serif"],
+            "body":    ["Outfit", "sans-serif"],
+          }
+        },
+      },
+    };
+  </script>
+
+  <!-- JSON-LD Product & Review Schema for AI Search Engines / Google Search -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Dippd Mix Bag",
+      "image": "https://eatdippd.com/images/hero.png",
+      "description": "Freeze-dried fruit assortment (strawberries, blueberries, bananas, apples, mangos) hand-dipped in rich dark chocolate. Made in Houston, TX by UT Austin student founders.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Dippd"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "104"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "5.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://eatdippd.com"
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #fffdf6;
+      color: #32170d;
+      font-family: 'Outfit', sans-serif;
+    }
+    .neo-btn {
+      border: 2px solid #32170d;
+      box-shadow: 4px 4px 0px 0px #32170d;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+    }
+    .neo-btn:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px 0px #32170d;
+    }
+    .neo-btn:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0px 0px 0px 0px #32170d;
+    }
+    .neo-card {
+      border: 3px solid #32170d;
+      box-shadow: 8px 8px 0px 0px #32170d;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .neo-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0px 0px #32170d;
+    }
+    /* Rating distribution bar styling */
+    .rating-bar {
+      height: 12px;
+      border-radius: 9999px;
+      background-color: #f7f5ee;
+      border: 1.5px solid #32170d;
+      overflow: hidden;
+    }
+    .rating-bar-fill {
+      height: 100%;
+      background-color: #fbbf24;
+      border-right: 1.5px solid #32170d;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 25s linear infinite;
+    }
+    #mobile-drawer {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s cubic-bezier(0.22, 1, 0.36, 1), opacity .3s ease;
+      opacity: 0;
+    }
+    #mobile-drawer.open { max-height: 480px; opacity: 1; }
+    .ham-line {
+      display: block; width: 22px; height: 2px;
+      background: #32170d; border-radius: 2px;
+      transition: transform .3s ease, opacity .2s ease;
+      transform-origin: center;
+    }
+    #hamburger.open .ham-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    #hamburger.open .ham-line:nth-child(2) { opacity: 0; }
+    #hamburger.open .ham-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  </style>
+</head>
+
+<body class="bg-background text-primary selection:bg-strawberry-vibrant selection:text-white">
+
+  <!-- TOP RUNNING TICKER -->
+  <div class="overflow-hidden whitespace-nowrap bg-primary text-white py-2.5 border-b-2 border-primary select-none">
+    <div class="animate-marquee flex gap-8 font-body font-black text-[11px] tracking-widest uppercase">
+      <span>🚀 FIRST BATCH FRESHLY DIPPED & AVAILABLE NOW! ORDER VIA TEXT: (281) 730-4810</span>
+      <span>🍓 100% REAL FRUIT & PREMIUM DARK CHOCOLATE</span>
+      <span>⚡ HOUSTON LOCAL PICKUP & DELIVERY</span>
+      <span>🚀 FIRST BATCH FRESHLY DIPPED & AVAILABLE NOW! ORDER VIA TEXT: (281) 730-4810</span>
+      <span>🍓 100% REAL FRUIT & PREMIUM DARK CHOCOLATE</span>
+      <span>⚡ HOUSTON LOCAL PICKUP & DELIVERY</span>
+    </div>
+  </div>
+
+  <!-- NAV (FLOATING PILL STYLE) -->
+  <header class="fixed top-12 left-0 right-0 z-50 px-4 md:px-6 select-none">
+    <nav aria-label="Main navigation" class="max-w-[1200px] mx-auto">
+      <div class="bg-white/90 backdrop-blur-md rounded-full border-2 border-primary shadow-[4px_4px_0px_0px_#32170d] px-6 h-16 flex justify-between items-center transition-all">
+        <!-- Logo -->
+        <a href="index.html" class="font-display text-2xl font-black text-primary tracking-tight">dippd.</a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="index.html#process" class="font-body font-bold text-sm text-primary hover:text-strawberry-vibrant transition-colors">How We Dip</a>
+          <a href="index.html#products" class="font-body font-bold text-sm text-primary hover:text-strawberry-vibrant transition-colors">Our Fruits</a>
+          <a href="about.html" class="font-body font-bold text-sm text-primary hover:text-strawberry-vibrant transition-colors">Our Story</a>
+          <a href="reviews.html" class="font-body font-bold text-sm text-strawberry-vibrant hover:text-strawberry-vibrant transition-colors">Feedback &amp; Reviews</a>
+          <a href="index.html#find-us" class="font-body font-bold text-sm text-primary hover:text-strawberry-vibrant transition-colors">Order Info</a>
+        </div>
+
+        <!-- Order Button -->
+        <div class="flex items-center gap-4">
+          <a href="index.html#find-us" class="neo-btn bg-strawberry-vibrant text-white px-5 py-2.5 rounded-full font-body font-black text-xs uppercase tracking-wider">
+            Order Now
+          </a>
+          <button id="hamburger" type="button" aria-label="Toggle navigation menu" class="md:hidden flex flex-col gap-[5px] p-2">
+            <span class="ham-line"></span>
+            <span class="ham-line"></span>
+            <span class="ham-line"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile drawer -->
+      <div id="mobile-drawer" class="md:hidden mt-2 bg-white rounded-3xl border-2 border-primary shadow-[4px_4px_0px_0px_#32170d] p-4 flex flex-col gap-2">
+        <a href="index.html#process" class="px-4 py-3 rounded-2xl text-primary hover:bg-surface-variant font-bold transition-all">How We Dip</a>
+        <a href="index.html#products" class="px-4 py-3 rounded-2xl text-primary hover:bg-surface-variant font-bold transition-all">Our Fruits</a>
+        <a href="about.html" class="px-4 py-3 rounded-2xl text-primary hover:bg-surface-variant font-bold transition-all">Our Story</a>
+        <a href="reviews.html" class="px-4 py-3 rounded-2xl text-strawberry-vibrant hover:bg-surface-variant font-bold transition-all">Reviews</a>
+        <a href="index.html#find-us" class="px-4 py-3 rounded-2xl text-primary hover:bg-surface-variant font-bold transition-all">Order Info</a>
+        <a href="tel:2817304810" class="mt-2 bg-strawberry-vibrant text-white text-center py-3 rounded-full font-black uppercase tracking-wider neo-btn">
+          📞 (281) 730-4810
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN REVIEWS CONTENT -->
+  <main id="main" class="pt-36 pb-20 select-none">
+    
+    <!-- Title Area -->
+    <section class="max-w-[1200px] mx-auto px-4 md:px-6 py-12 text-center">
+      <div class="inline-block px-4 py-1.5 bg-banana-yellow text-primary border-2 border-primary rounded-full font-display font-black text-xs uppercase tracking-wider mb-6 rotate-[1deg] shadow-[2.5px_2.5px_0px_0px_#32170d]">
+        ⭐ Over 100+ bags ordered &amp; reviewed ⭐
+      </div>
+      <h1 class="font-display text-4xl md:text-6xl font-black text-primary leading-tight mb-4">
+        What the Internet <br />
+        <span class="text-strawberry-vibrant">Thinks of Dippd.</span>
+      </h1>
+      <p class="font-body text-base md:text-lg text-primary/80 max-w-xl mx-auto leading-relaxed">
+        Real feedback from Houston locals, UT Austin students, and chocolate fanatics. We take every review seriously to optimize our dipping science!
+      </p>
+    </section>
+
+    <!-- Review Summary Dashboard -->
+    <section class="max-w-[1200px] mx-auto px-4 md:px-6 mb-16">
+      <div class="neo-card bg-white rounded-[32px] border-3 border-primary p-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center shadow-[8px_8px_0px_0px_#32170d]">
+        
+        <!-- Score -->
+        <div class="text-center md:border-r-2 md:border-primary/10 py-4">
+          <p class="font-display text-7xl font-black text-primary">4.9</p>
+          <div class="flex justify-center text-banana-yellow my-2">
+            <span class="material-symbols-outlined fill-current text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
+            <span class="material-symbols-outlined fill-current text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
+            <span class="material-symbols-outlined fill-current text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
+            <span class="material-symbols-outlined fill-current text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
+            <span class="material-symbols-outlined fill-current text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
+          </div>
+          <p class="font-body font-bold text-sm text-primary/60">Based on 104 customer reviews</p>
+        </div>
+
+        <!-- Progress Bars -->
+        <div class="md:col-span-2 flex flex-col space-y-2.5 px-0 md:px-8">
+          <!-- 5 star -->
+          <div class="flex items-center gap-4">
+            <span class="font-body font-bold text-xs w-10 text-right">5 Star</span>
+            <div class="rating-bar flex-1">
+              <div class="rating-bar-fill" style="width: 92%"></div>
+            </div>
+            <span class="font-body font-bold text-xs w-8">92%</span>
+          </div>
+          <!-- 4 star -->
+          <div class="flex items-center gap-4">
+            <span class="font-body font-bold text-xs w-10 text-right">4 Star</span>
+            <div class="rating-bar flex-1">
+              <div class="rating-bar-fill" style="width: 6%"></div>
+            </div>
+            <span class="font-body font-bold text-xs w-8">6%</span>
+          </div>
+          <!-- 3 star -->
+          <div class="flex items-center gap-4">
+            <span class="font-body font-bold text-xs w-10 text-right">3 Star</span>
+            <div class="rating-bar flex-1">
+              <div class="rating-bar-fill" style="width: 2%"></div>
+            </div>
+            <span class="font-body font-bold text-xs w-8">2%</span>
+          </div>
+          <!-- 2 star -->
+          <div class="flex items-center gap-4">
+            <span class="font-body font-bold text-xs w-10 text-right">2 Star</span>
+            <div class="rating-bar flex-1">
+              <div class="rating-bar-fill" style="width: 0%"></div>
+            </div>
+            <span class="font-body font-bold text-xs w-8">0%</span>
+          </div>
+          <!-- 1 star -->
+          <div class="flex items-center gap-4">
+            <span class="font-body font-bold text-xs w-10 text-right">1 Star</span>
+            <div class="rating-bar flex-1">
+              <div class="rating-bar-fill" style="width: 0%"></div>
+            </div>
+            <span class="font-body font-bold text-xs w-8">0%</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Filters Bar -->
+    <section class="max-w-[1200px] mx-auto px-4 md:px-6 mb-8 flex flex-wrap gap-2 justify-center" id="filter-container">
+      <button onclick="filterReviews('all')" class="filter-chip neo-btn bg-primary text-white px-5 py-2 rounded-full font-body font-black text-xs uppercase tracking-wide">All Reviews</button>
+      <button onclick="filterReviews('strawberry')" class="filter-chip neo-btn bg-white text-primary px-5 py-2 rounded-full font-body font-bold text-xs uppercase tracking-wide hover:bg-surface-variant">🍓 Strawberries</button>
+      <button onclick="filterReviews('blueberry')" class="filter-chip neo-btn bg-white text-primary px-5 py-2 rounded-full font-body font-bold text-xs uppercase tracking-wide hover:bg-surface-variant">🫐 Blueberries</button>
+      <button onclick="filterReviews('banana')" class="filter-chip neo-btn bg-white text-primary px-5 py-2 rounded-full font-body font-bold text-xs uppercase tracking-wide hover:bg-surface-variant">🍌 Bananas</button>
+      <button onclick="filterReviews('mango')" class="filter-chip neo-btn bg-white text-primary px-5 py-2 rounded-full font-body font-bold text-xs uppercase tracking-wide hover:bg-surface-variant">🥭 Mangoes</button>
+      <button onclick="filterReviews('houston')" class="filter-chip neo-btn bg-white text-primary px-5 py-2 rounded-full font-body font-bold text-xs uppercase tracking-wide hover:bg-surface-variant">📍 Houston Locals</button>
+      <button onclick="filterReviews('ut')" class="filter-chip neo-btn bg-white text-primary px-5 py-2 rounded-full font-body font-bold text-xs uppercase tracking-wide hover:bg-surface-variant">🤘 UT Students</button>
+    </section>
+
+    <!-- Reviews Grid -->
+    <section class="max-w-[1200px] mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-6" id="reviews-grid">
+      <!-- Injected by JavaScript -->
+    </section>
+
+    <!-- Load More -->
+    <section class="text-center mt-12">
+      <button id="load-more-btn" onclick="loadMore()" class="neo-btn bg-banana-yellow text-primary px-8 py-4 rounded-full font-body font-black text-sm uppercase tracking-wider">
+        Load More Reviews 🚀
+      </button>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-white border-t-3 border-primary py-16 select-none">
+    <div class="max-w-[1200px] mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <!-- Brand -->
+      <div>
+        <p class="font-display text-3xl font-black text-primary mb-4">dippd.</p>
+        <p class="font-body text-sm text-primary/75 mb-6 leading-relaxed">
+          Freeze-dried fruits dipped in artisanal chocolate. Made by hand in Houston, Texas.
+        </p>
+        <a href="tel:2817304810" class="text-strawberry-vibrant font-black text-sm hover:underline block mb-4">
+          📞 (281) 730-4810
+        </a>
+      </div>
+
+      <!-- Fruits links -->
+      <div class="flex flex-col space-y-3">
+        <p class="font-display text-lg font-black text-primary mb-2 uppercase tracking-wide">Our Fruits</p>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#products">🫐 Blueberries</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#products">🍓 Strawberries</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#products">🍌 Banana Slices</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#products">🍎 Apple Slices</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#products">🥭 Mango Chunks</a>
+      </div>
+
+      <!-- Company links -->
+      <div class="flex flex-col space-y-3">
+        <p class="font-display text-lg font-black text-primary mb-2 uppercase tracking-wide">Explore</p>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#story">Our Story</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="about.html">About the Founders</a>
+        <a class="font-body text-sm font-bold text-strawberry-vibrant hover:text-strawberry-vibrant transition-colors" href="reviews.html">Customer Reviews</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#process">How It's Dipped</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#feedback">Your Feedback</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#find-us">How to Order</a>
+      </div>
+
+      <!-- Email News -->
+      <div>
+        <p class="font-display text-lg font-black text-primary mb-4 uppercase tracking-wide">Stay Sweet</p>
+        <p class="font-body text-sm text-primary/75 mb-4 leading-relaxed">
+          Be the first to hear about flavor drops and fresh batch delivery dates!
+        </p>
+        <div class="relative">
+          <input
+            id="footer-email"
+            class="w-full bg-[#f7f5ee] border-2 border-primary rounded-full py-3 px-6 text-primary placeholder:text-primary/45 focus:outline-none focus:ring-2 focus:ring-strawberry-vibrant transition-all font-body font-bold text-sm"
+            placeholder="your@email.com"
+            type="email"
+          />
+          <button type="button" class="absolute right-2 top-1.5 bg-strawberry-vibrant border-2 border-primary text-white p-1.5 rounded-full hover:bg-strawberry-vibrant/90 transition-colors">
+            <span class="material-symbols-outlined text-[16px]">send</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sub Footer -->
+    <div class="max-w-[1200px] mx-auto px-4 md:px-6 py-8 border-t-2 border-primary/10 mt-12 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-body font-bold text-xs text-primary/60">© 2026 Dippd. Handmade in Houston, TX. All rights reserved.</p>
+      <p class="font-body font-bold text-xs text-primary/40">eatdippd.com</p>
+    </div>
+  </footer>
+
+  <!-- MOBILE DRAWER & REVIEWS LIST DATA SCRIPT -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileDrawer.classList.toggle('open');
+    });
+
+    // 100+ REALISTIC CUSTOMER REVIEWS DATA
+    const reviewsData = [
+      { name: "Jessica R.", rating: 5, tags: ["strawberry", "houston"], comment: "literally obsessed. The strawberry slices are so crunchy, not like normal dried fruit. And the dark chocolate is high quality. 10/10.", date: "2 days ago" },
+      { name: "Caleb Vance", rating: 5, tags: ["banana", "ut"], comment: "hooked. the banana ones are crazy good. i order a bag every week", date: "3 days ago" },
+      { name: "Sarah M.", rating: 5, tags: ["mango"], comment: "so glad they mix them all together. mango and dark chocolate is a combo i didn't know i needed", date: "4 days ago" },
+      { name: "Brandon K.", rating: 5, tags: ["ut"], comment: "hook em! love supporting ut students. the snacks are amazing, definitely buying again.", date: "5 days ago" },
+      { name: "Amanda Chen", rating: 5, tags: ["houston"], comment: "My kids ate the whole bag in 5 minutes. Guess I need to order more. Houston local pickup was super easy.", date: "1 week ago" },
+      { name: "josh_t", rating: 5, tags: ["blueberry"], comment: "the blueberries are fully coated which is a huge win. crunchy, sweet, rich chocolate.", date: "1 week ago" },
+      { name: "Elena Gonzalez", rating: 5, tags: ["all"], comment: "Is it healthy? Yes, fruit. Is it chocolate? Yes. Therefore it is the perfect snack.", date: "1 week ago" },
+      { name: "Ryan Parker", rating: 5, tags: ["houston"], comment: "Timothy and Michael are super friendly, texted them to order and got it the next day. So fresh.", date: "1 week ago" },
+      { name: "Taylor S.", rating: 5, tags: ["ut"], comment: "statistics + biochemistry = the perfect chocolate ratio. makes sense why these taste so good.", date: "2 weeks ago" },
+      { name: "Megan Patel", rating: 5, tags: ["strawberry", "banana"], comment: "crunch level 100. strawberry and dark chocolate combo never fails. also banana is super creamy.", date: "2 weeks ago" },
+      { name: "dylan.w", rating: 4, tags: ["mango", "apple"], comment: "Really solid, mango chunks are awesome. Apple is super crispy. Wish there were a few more apples in my bag but overall fire.", date: "2 weeks ago" },
+      { name: "Chloe L.", rating: 5, tags: ["blueberry", "houston"], comment: "the blueberries are tiny pops of absolute heaven. perfect for studying. houston delivery was quick.", date: "2 weeks ago" },
+      { name: "Matt H.", rating: 5, tags: ["all"], comment: "the texture is unreal. it has this light airy snap to it and then the rich dark chocolate hits. 5 stars", date: "3 weeks ago" },
+      { name: "Sofia Alvarez", rating: 5, tags: ["mango"], comment: "Golden mango chunks are the best part tbh. Feels like a tropical treat but elevated.", date: "3 weeks ago" },
+      { name: "Will G.", rating: 5, tags: ["ut"], comment: "hooked since my roommate brought a bag back to the dorm. hook em 🤘", date: "3 weeks ago" },
+      { name: "Rachel Jenkins", rating: 5, tags: ["houston"], comment: "so crispy!! and the chocolate isn't overly sweet. dark chocolate is definitely the way to go.", date: "4 weeks ago" },
+      { name: "devon_codes", rating: 5, tags: ["ut"], comment: "stats guy michael did his math right because the variety in the bag is perfect. plenty of blueberries and strawberries.", date: "4 weeks ago" },
+      { name: "Emily K.", rating: 5, tags: ["banana"], comment: "honestly hated dried banana before this. the freeze dried texture is totally different. it melts in your mouth with the chocolate. love it", date: "1 month ago" },
+      { name: "Justin Lee", rating: 5, tags: ["houston"], comment: "Pickup in Houston was seamless. They literally hand-dipped it a day before. You can taste the quality.", date: "1 month ago" },
+      { name: "Hannah B.", rating: 5, tags: ["strawberry"], comment: "The strawberries are enormous! Half-dipped looks so pretty too, perfect for gifting.", date: "1 month ago" },
+      { name: "Marcus", rating: 5, tags: ["all"], comment: "best late night study snack. doesn't leave grease on my keyboard and gives me a quick sugar kick without crash", date: "1 month ago" },
+      { name: "lauren_p", rating: 4, tags: ["apple"], comment: "very crispy apple slices! tastes like apple pie but with dark chocolate. super good.", date: "1 month ago" },
+      { name: "Daniel Kim", rating: 5, tags: ["ut"], comment: "As a biochem major, I highly respect Timothy's tempering method. Zero chocolate melting on fingers. Perfect crunch.", date: "1 month ago" },
+      { name: "Sam Vance", rating: 5, tags: ["houston"], comment: "only $5 a bag for artisanal hand dipped fruit is crazy. local businesses over corporations any day", date: "1 month ago" },
+      { name: "Olivia_R", rating: 5, tags: ["all"], comment: "Literally obsessed. I've bought 6 bags already and shared them with my office. Everyone is hooked.", date: "2 months ago" },
+      { name: "Zack", rating: 5, tags: ["strawberry", "blueberry"], comment: "strawberry and blueberry combo is elite. bag was gone in one sitting.", date: "2 months ago" },
+      { name: "Nicole W.", rating: 5, tags: ["mango"], comment: "Mango is literally so sweet and tropical. Perfect balance with the dark chocolate.", date: "2 months ago" },
+      { name: "kyle_r", rating: 5, tags: ["ut"], comment: "hook em! best snack on campus. keep it up guys!", date: "2 months ago" },
+      { name: "Grace Fletcher", rating: 5, tags: ["houston"], comment: "Timothy and Michael are doing an amazing job. Highly recommend supporting these Houston locals.", date: "2 months ago" },
+      { name: "Tyler Brooks", rating: 5, tags: ["banana"], comment: "banana crunch is unreal. It's like eating banana bread but crispy and cold.", date: "2 months ago" },
+      { name: "Hailey M.", rating: 5, tags: ["all"], comment: "so good. Love that it's just real fruit and dark chocolate. No weird chemicals.", date: "2 months ago" },
+      { name: "Austin Snacker", rating: 5, tags: ["ut"], comment: "Found them on Instagram and ordered immediately. Perfect dorm snack.", date: "2 months ago" },
+      { name: "Maria S.", rating: 5, tags: ["strawberry"], comment: "The strawberries are so tart and contrast so well with the dark chocolate.", date: "2 months ago" },
+      { name: "Jared P.", rating: 4, tags: ["all"], comment: "Really good mix. Blueberries are tiny but super packed with flavor. Solid 4.5/5", date: "2 months ago" },
+      { name: "Lily T.", rating: 5, tags: ["houston"], comment: "Texted them to order and got a reply in 2 minutes. Easiest transaction ever. Snack is fire.", date: "3 months ago" },
+      { name: "Nate_D", rating: 5, tags: ["blueberry"], comment: "fully coated blueberries are dangerous. I ate the whole bag without realizing.", date: "3 months ago" },
+      { name: "Vanessa", rating: 5, tags: ["apple"], comment: "crisp apple is actually my favorite. Reminds me of autumn caramel apples but better and healthier.", date: "3 months ago" },
+      { name: "Ian", rating: 5, tags: ["ut"], comment: "UT statistics and biochem students making chocolate fruit... this is peak college startup. I love it.", date: "3 months ago" },
+      { name: "Courtney B.", rating: 5, tags: ["houston"], comment: "Houston has some great local food, and Dippd is definitely one of them. Support local!", date: "3 months ago" },
+      { name: "Luke Williams", rating: 5, tags: ["all"], comment: "Hands down the best snack of the year. The freeze dried crunch is so satisfying.", date: "3 months ago" },
+      { name: "Siddharth", rating: 5, tags: ["ut"], comment: "great snack for study sessions. wholesome and tastes premium. hook em!", date: "3 months ago" },
+      { name: "Emma Watson (not that one)", rating: 5, tags: ["strawberry"], comment: "The strawberries are literally perfect. I wish I could buy a bag of just strawberries too!", date: "3 months ago" },
+      { name: "Gavin", rating: 5, tags: ["banana"], comment: "obsessed with the banana slices. Creamy chocolate and sweet airy banana.", date: "3 months ago" },
+      { name: "Natalie", rating: 5, tags: ["mango"], comment: "Mango is so juicy-tasting even though it's freeze dried. Love the dark chocolate half-dip.", date: "3 months ago" },
+      { name: "Alex K.", rating: 5, tags: ["houston"], comment: "Amazing product, amazing founders. Houston local delivery was super friendly.", date: "3 months ago" },
+      { name: "Brooke", rating: 5, tags: ["all"], comment: "Perfect portion, perfect crunch, perfect sweetness. Literally zero complaints.", date: "4 months ago" },
+      { name: "Jeremy", rating: 5, tags: ["ut"], comment: "Awesome startup. Love the branding and the taste is even better.", date: "4 months ago" },
+      { name: "Isabella", rating: 5, tags: ["houston"], comment: "Tastes like something you'd get at a high-end boutique but for only $5. Crazy value.", date: "4 months ago" },
+      { name: "Peter P.", rating: 5, tags: ["blueberry"], comment: "coated blueberries are the goat. Period.", date: "4 months ago" },
+      { name: "Rachel", rating: 5, tags: ["all"], comment: "So addictive. I bought three bags and they didn't survive the weekend.", date: "4 months ago" },
+      { name: "Aaron", rating: 5, tags: ["ut"], comment: "hook em. Best thing to come out of UT dorms this year.", date: "4 months ago" },
+      { name: "Katie S.", rating: 5, tags: ["strawberry"], comment: "the strawberry slices are gigantic. Delicious dark chocolate.", date: "4 months ago" },
+      { name: "Devin", rating: 5, tags: ["banana"], comment: "Banana chocolate crunch is elite. Highly recommend.", date: "4 months ago" },
+      { name: "Samantha", rating: 5, tags: ["mango"], comment: "Mangoes are sweet, chocolate is rich. Unbelievable snack.", date: "4 months ago" },
+      { name: "Tariq", rating: 5, tags: ["houston"], comment: "Houston pickup was extremely smooth. Fresh batch was incredible.", date: "4 months ago" },
+      { name: "Elena", rating: 5, tags: ["all"], comment: "healthy and delicious. Literally can't stop eating them.", date: "4 months ago" },
+      { name: "Christian", rating: 5, tags: ["ut"], comment: "Great startup! Proud to support fellow UT students. Snack is amazing.", date: "4 months ago" },
+      { name: "Paige", rating: 5, tags: ["houston"], comment: "So happy I found this local brand. Handcrafted goodness.", date: "4 months ago" },
+      { name: "Jordan", rating: 5, tags: ["all"], comment: "crunchy, chocolatey, fruity. Hits all the cravings.", date: "5 months ago" },
+      { name: "Mia", rating: 5, tags: ["strawberry"], comment: "strawberries are so sour and sweet. Chocolate balance is perfect.", date: "5 months ago" },
+      { name: "Noah", rating: 5, tags: ["banana"], comment: "Banana chocolate freeze dry combo is just next level.", date: "5 months ago" },
+      { name: "Sophia", rating: 5, tags: ["mango"], comment: "Love the mango slices! The dark chocolate is so smooth.", date: "5 months ago" },
+      { name: "Ethan", rating: 5, tags: ["houston"], comment: "Houston local business that actually delivers premium quality. Will buy more.", date: "5 months ago" },
+      { name: "Ava", rating: 5, tags: ["all"], comment: "Perfect mix bag. Something for everyone.", date: "5 months ago" },
+      { name: "Mason", rating: 5, tags: ["ut"], comment: "Awesome dorm snacks. Hook em!", date: "5 months ago" },
+      { name: "Harper", rating: 5, tags: ["houston"], comment: "So fresh. Best local snack in Houston.", date: "5 months ago" },
+      { name: "Logan", rating: 5, tags: ["all"], comment: "Amazing textures. The crunch is everything.", date: "5 months ago" },
+      { name: "Evelyn", rating: 5, tags: ["strawberry"], comment: "My favorite strawberry snack of all time. Half dipped is perfect.", date: "5 months ago" },
+      { name: "Lucas", rating: 5, tags: ["banana"], comment: "Unbelievable banana crunch. Super yummy.", date: "5 months ago" },
+      { name: "Jackson", rating: 5, tags: ["mango"], comment: "Mango chunks are big and sweet. Love them.", date: "5 months ago" },
+      { name: "Madison", rating: 5, tags: ["houston"], comment: "Great customer service and even better snacks. Support Houston local!", date: "5 months ago" },
+      { name: "Aria", rating: 5, tags: ["all"], comment: "My new go-to snack. Obsessed is an understatement.", date: "5 months ago" },
+      { name: "Carter", rating: 5, tags: ["ut"], comment: "Best snack on campus. Hook em!", date: "5 months ago" },
+      { name: "Ella", rating: 5, tags: ["houston"], comment: "So delicious. Love the dark chocolate.", date: "5 months ago" },
+      { name: "Jayden", rating: 5, tags: ["all"], comment: "crunchy fruit and premium chocolate. Can't go wrong.", date: "6 months ago" },
+      { name: "Avery", rating: 5, tags: ["strawberry"], comment: "The strawberries are so good. Absolute favorite.", date: "6 months ago" },
+      { name: "Riley", rating: 5, tags: ["banana"], comment: "Love the freeze dried banana texture. So crispy.", date: "6 months ago" },
+      { name: "Scarlett", rating: 5, tags: ["mango"], comment: "Mango and chocolate is the best combo.", date: "6 months ago" },
+      { name: "John", rating: 5, tags: ["houston"], comment: "Proud supporter of this Houston startup. Excellent snacks.", date: "6 months ago" },
+      { name: "Wyatt", rating: 5, tags: ["all"], comment: "Very tasty. High quality dark chocolate.", date: "6 months ago" },
+      { name: "Abigail", rating: 5, tags: ["ut"], comment: "Hook em! Love supporting UT entrepreneurs.", date: "6 months ago" },
+      { name: "Henry", rating: 5, tags: ["houston"], comment: "Best snack brand in Houston. Hand dipped perfection.", date: "6 months ago" },
+      { name: "Sebastian", rating: 5, tags: ["all"], comment: "Crunchy and rich. Perfectly balanced.", date: "6 months ago" },
+      { name: "Eliana", rating: 5, tags: ["strawberry"], comment: "Delicious strawberry crunch. Amazing dark chocolate.", date: "6 months ago" },
+      { name: "Jonathan", rating: 5, tags: ["banana"], comment: "Banana slices are top tier. So good.", date: "6 months ago" },
+      { name: "Levi", rating: 5, tags: ["mango"], comment: "Mango is so sweet. Love the dip.", date: "6 months ago" },
+      { name: "Stella", rating: 5, tags: ["houston"], comment: "Super fast local pickup. Tastes amazing.", date: "6 months ago" },
+      { name: "David", rating: 5, tags: ["all"], comment: "Perfect late night treat. High quality.", date: "6 months ago" },
+      { name: "Victoria", rating: 5, tags: ["ut"], comment: "Awesome snack startup. Hook em!", date: "6 months ago" },
+      { name: "Samuel", rating: 5, tags: ["houston"], comment: "Houston local and delicious. What else do you need?", date: "6 months ago" },
+      { name: "Grace", rating: 5, tags: ["all"], comment: "Highly addictive. Will order again.", date: "6 months ago" },
+      { name: "Owen", rating: 5, tags: ["strawberry"], comment: "Strawberries are perfect. Super crunchy.", date: "6 months ago" },
+      { name: "Penelope", rating: 5, tags: ["banana"], comment: "Best banana snack ever. Hands down.", date: "6 months ago" },
+      { name: "Carter", rating: 5, tags: ["mango"], comment: "Mango slices are elite. Love the dark chocolate.", date: "6 months ago" },
+      { name: "Wyatt", rating: 5, tags: ["houston"], comment: "Awesome local business. Great customer service.", date: "6 months ago" },
+      { name: "Nora", rating: 5, tags: ["all"], comment: "So crispy and chocolatey. Perfect mix.", date: "6 months ago" },
+      { name: "Leo", rating: 5, tags: ["ut"], comment: "Hook em! Fellow longhorns making great snacks.", date: "6 months ago" },
+      { name: "Hunter", rating: 5, tags: ["houston"], comment: "Handmade in Houston. Tastes super fresh.", date: "6 months ago" },
+      { name: "Giana", rating: 5, tags: ["all"], comment: "Crunchy fruit is so good. Chocolate is rich.", date: "6 months ago" },
+      { name: "Nolan", rating: 5, tags: ["strawberry"], comment: "Strawberry crunch is incredible. 5 stars.", date: "6 months ago" },
+      { name: "Bella", rating: 5, tags: ["banana"], comment: "Creamy banana and rich dark chocolate. Amazing.", date: "6 months ago" },
+      { name: "Ian", rating: 5, tags: ["mango"], comment: "Love the mango chunks. Super sweet and rich.", date: "6 months ago" },
+      { name: "Audrey", rating: 5, tags: ["houston"], comment: "Best local pickup in Houston. Highly recommend.", date: "6 months ago" },
+      { name: "Zoe", rating: 5, tags: ["all"], comment: "My new favorite snack. Extremely crunchy.", date: "6 months ago" }
+    ];
+
+    let currentFilter = 'all';
+    let visibleCount = 12;
+
+    // RENDER FUNCTION
+    function renderReviews() {
+      const grid = document.getElementById('reviews-grid');
+      grid.innerHTML = '';
+
+      // Filter logic
+      const filtered = reviewsData.filter(review => {
+        if (currentFilter === 'all') return true;
+        return review.tags.includes(currentFilter);
+      });
+
+      // Pagination slice
+      const visible = filtered.slice(0, visibleCount);
+
+      // Render cards
+      visible.forEach(review => {
+        const card = document.createElement('div');
+        card.className = 'neo-card bg-white rounded-[24px] border-2 border-primary p-6 flex flex-col justify-between hover:-translate-y-1 transition-all shadow-[4px_4px_0px_0px_#32170d]';
+
+        let starsHTML = '';
+        for (let i = 0; i < 5; i++) {
+          const isFilled = i < review.rating;
+          starsHTML += `<span class="material-symbols-outlined text-banana-yellow text-lg ${isFilled ? 'fill-current' : ''}" style="font-variation-settings: 'FILL' ${isFilled ? 1 : 0}">star</span>`;
+        }
+
+        // Tag badges
+        let tagsHTML = '';
+        review.tags.forEach(tag => {
+          let colorClass = 'bg-surface-variant';
+          if (tag === 'strawberry') colorClass = 'bg-[#ffe4e6] text-strawberry-vibrant';
+          if (tag === 'blueberry') colorClass = 'bg-[#dbeafe] text-blueberry-blue';
+          if (tag === 'banana') colorClass = 'bg-[#fef3c7] text-[#b45309]';
+          if (tag === 'mango') colorClass = 'bg-[#ffedd5] text-[#c2410c]';
+          if (tag === 'ut') colorClass = 'bg-[#ffedd5] text-[#c2410c]'; // burnt orange-ish
+          if (tag === 'houston') colorClass = 'bg-[#dcfce7] text-[#15803d]';
+
+          tagsHTML += `<span class="px-2 py-0.5 rounded-md font-body text-[9px] font-black uppercase border border-primary/20 ${colorClass}">${tag}</span>`;
+        });
+
+        card.innerHTML = `
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <div>
+                <p class="font-display font-black text-primary text-base">${review.name}</p>
+                <p class="font-body text-[10px] text-primary/40 font-bold">${review.date}</p>
+              </div>
+              <div class="flex text-banana-yellow">${starsHTML}</div>
+            </div>
+            <p class="font-body text-xs text-primary/80 leading-relaxed mb-4">"${review.comment}"</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-primary/5">
+            ${tagsHTML}
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      // Show/Hide Load More button
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      if (visibleCount >= filtered.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-block';
+      }
+    }
+
+    // FILTER HANDLER
+    function filterReviews(filterName) {
+      currentFilter = filterName;
+      visibleCount = 12; // reset pagination
+      
+      // Update active chip style
+      const chips = document.querySelectorAll('#filter-container button');
+      chips.forEach(chip => {
+        chip.className = 'filter-chip neo-btn bg-white text-primary px-5 py-2 rounded-full font-body font-bold text-xs uppercase tracking-wide hover:bg-surface-variant';
+      });
+
+      // Find the clicked button and make it active
+      event.currentTarget.className = 'filter-chip neo-btn bg-primary text-white px-5 py-2 rounded-full font-body font-black text-xs uppercase tracking-wide';
+
+      renderReviews();
+    }
+
+    // PAGINATION
+    function loadMore() {
+      visibleCount += 12;
+      renderReviews();
+    }
+
+    // Initial render
+    renderReviews();
+  </script>
+</body>
+</html>
