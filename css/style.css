@@ -1,0 +1,172 @@
+/* ─── Base Styles ───────────────────────────────────── */
+body {
+  background-color: #fffdf6;
+  color: #32170d;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ─── Neo-Brutalist Solid Shadow Buttons & Cards ──────── */
+.neo-btn {
+  border: 2px solid #32170d;
+  box-shadow: 4px 4px 0px 0px #32170d;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+.neo-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #32170d;
+}
+.neo-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px 0px #32170d;
+}
+
+.neo-card {
+  border: 3px solid #32170d;
+  box-shadow: 8px 8px 0px 0px #32170d;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.neo-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px 0px #32170d;
+}
+
+/* ─── Fruit-colored shadow cards ───────────────────── */
+.neo-card-strawberry {
+  border: 3px solid #32170d;
+  box-shadow: 8px 8px 0px 0px #ff1f5e;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.neo-card-strawberry:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px 0px #ff1f5e;
+}
+
+.neo-card-blueberry {
+  border: 3px solid #32170d;
+  box-shadow: 8px 8px 0px 0px #3b82f6;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.neo-card-blueberry:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px 0px #3b82f6;
+}
+
+.neo-card-banana {
+  border: 3px solid #32170d;
+  box-shadow: 8px 8px 0px 0px #fbbf24;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.neo-card-banana:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px 0px #fbbf24;
+}
+
+.neo-card-apple {
+  border: 3px solid #32170d;
+  box-shadow: 8px 8px 0px 0px #22c55e;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.neo-card-apple:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px 0px #22c55e;
+}
+
+.neo-card-mango {
+  border: 3px solid #32170d;
+  box-shadow: 8px 8px 0px 0px #ff9f1c;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.neo-card-mango:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px 0px #ff9f1c;
+}
+
+/* ─── Infinite CSS Marquee Ticker ────────────────────── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Float animation ───────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-15px) rotate(1.5deg); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+/* ─── Pulse animation ───────────────────────────────── */
+@keyframes pulse-sticker {
+  0%, 100% { transform: scale(1) rotate(6deg); }
+  50%      { transform: scale(1.05) rotate(10deg); }
+}
+.animate-sticker { animation: pulse-sticker 3s ease-in-out infinite; }
+
+/* ─── Scroll reveal ─────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* ─── Skip link ─────────────────────────────────────── */
+.skip-link {
+  position: absolute; top: -999px; left: 1rem;
+  background: #32170d; color: #fff;
+  padding: .5rem 1rem; border-radius: 0 0 8px 8px;
+  font-weight: 700; z-index: 9999;
+}
+.skip-link:focus { top: 0; }
+
+/* ─── Hide scrollbar on product rail ────────────────── */
+.scroll-hide { scrollbar-width: none; -ms-overflow-style: none; }
+.scroll-hide::-webkit-scrollbar { display: none; }
+
+/* ─── Mobile drawer ─────────────────────────────────── */
+#mobile-drawer {
+  max-height: 0; overflow: hidden;
+  transition: max-height .4s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity .3s ease;
+  opacity: 0;
+}
+#mobile-drawer.open { max-height: 480px; opacity: 1; }
+
+/* ─── Hamburger Menu Lines ─────────────────────────── */
+.ham-line {
+  display: block; width: 22px; height: 2px;
+  background: #32170d; border-radius: 2px;
+  transition: transform .3s ease, opacity .2s ease;
+  transform-origin: center;
+}
+#hamburger.open .ham-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#hamburger.open .ham-line:nth-child(2) { opacity: 0; }
+#hamburger.open .ham-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─── Drag-to-scroll cursor feedback ───────────────────── */
+#product-rail { cursor: grab; }
+#product-rail.dragging { cursor: grabbing; }
+#product-rail.dragging .product-card { pointer-events: none; }
+
+/* ─── Rating distribution bar styling (Reviews Page) ───── */
+.rating-bar {
+  height: 12px;
+  border-radius: 9999px;
+  background-color: #f7f5ee;
+  border: 1.5px solid #32170d;
+  overflow: hidden;
+}
+.rating-bar-fill {
+  height: 100%;
+  background-color: #fbbf24;
+  border-right: 1.5px solid #32170d;
+}

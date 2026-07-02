@@ -2,7 +2,7 @@
 
 > **Half Dipped. Fully Obsessed.** 
 
-Welcome to the official repository for the **dippd.** website! We make premium freeze-dried fruits dipped in artisanal dark chocolate, made by hand right here in Houston, TX by two friends. 
+Welcome to the official repository for the **dippd.** website! We make premium freeze-dried fruits dipped in artisanal milk chocolate, made by hand right here in Houston, TX by two friends. 
 
 We only dip half of the fruit so the real fruit flavor shines through (except for the blueberries, we coat the whole blueberry because no half measures allowed there!). 
 
@@ -13,9 +13,9 @@ This is the codebase for our landing page. It's fast, friendly, high-energy, and
 ## ⚡ The Flavor Lineup
 
 * **🍓 Ruby Strawberries (½ dipped)**: Sweet, tart, and undeniably crunchy. The fan fave.
-* **🫐 Dark Choc Blueberries (Fully coated)**: Our only fully-coated fruit. A pop of sweet berry crunch.
+* **🫐 Milk Choc Blueberries (Fully coated)**: Our only fully-coated fruit. A pop of sweet berry crunch.
 * **🍌 Velvet Banana (½ dipped)**: Rich, creamy, and surprisingly light.
-* **🍎 Crispy Apple (½ dipped)**: The crunchiest of the bunch. Classic red apple meets dark chocolate.
+* **🍎 Crispy Apple (½ dipped)**: The crunchiest of the bunch. Classic red apple meets milk chocolate.
 * **🥭 Golden Mango (½ dipped)**: Sun-ripened mango chunks with a deep cocoa finish. A tropical vibe.
 
 ---

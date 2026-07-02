@@ -105,60 +105,7 @@
     }
   </script>
 
-  <style>
-    body {
-      background-color: #fffdf6;
-      color: #32170d;
-      font-family: 'Outfit', sans-serif;
-    }
-    .neo-btn {
-      border: 2px solid #32170d;
-      box-shadow: 4px 4px 0px 0px #32170d;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      cursor: pointer;
-    }
-    .neo-btn:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0px 0px #32170d;
-    }
-    .neo-btn:active {
-      transform: translate(4px, 4px);
-      box-shadow: 0px 0px 0px 0px #32170d;
-    }
-    .neo-card {
-      border: 3px solid #32170d;
-      box-shadow: 8px 8px 0px 0px #32170d;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .neo-card:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 10px 10px 0px 0px #32170d;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-marquee {
-      display: flex;
-      width: max-content;
-      animation: marquee 25s linear infinite;
-    }
-    #mobile-drawer {
-      max-height: 0; overflow: hidden;
-      transition: max-height .4s cubic-bezier(0.22, 1, 0.36, 1), opacity .3s ease;
-      opacity: 0;
-    }
-    #mobile-drawer.open { max-height: 480px; opacity: 1; }
-    .ham-line {
-      display: block; width: 22px; height: 2px;
-      background: #32170d; border-radius: 2px;
-      transition: transform .3s ease, opacity .2s ease;
-      transform-origin: center;
-    }
-    #hamburger.open .ham-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    #hamburger.open .ham-line:nth-child(2) { opacity: 0; }
-    #hamburger.open .ham-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="bg-background text-primary selection:bg-strawberry-vibrant selection:text-white">
@@ -167,10 +114,10 @@
   <div class="overflow-hidden whitespace-nowrap bg-primary text-white py-2.5 border-b-2 border-primary select-none">
     <div class="animate-marquee flex gap-8 font-body font-black text-[11px] tracking-widest uppercase">
       <span>🚀 FIRST BATCH FRESHLY DIPPED & AVAILABLE NOW! ORDER VIA TEXT: (281) 730-4810</span>
-      <span>🍓 100% REAL FRUIT & PREMIUM DARK CHOCOLATE</span>
+      <span>🍓 100% REAL FRUIT & PREMIUM MILK CHOCOLATE</span>
       <span>⚡ HOUSTON LOCAL PICKUP & DELIVERY</span>
       <span>🚀 FIRST BATCH FRESHLY DIPPED & AVAILABLE NOW! ORDER VIA TEXT: (281) 730-4810</span>
-      <span>🍓 100% REAL FRUIT & PREMIUM DARK CHOCOLATE</span>
+      <span>🍓 100% REAL FRUIT & PREMIUM MILK CHOCOLATE</span>
       <span>⚡ HOUSTON LOCAL PICKUP & DELIVERY</span>
     </div>
   </div>
@@ -359,7 +306,7 @@
         <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="about.html">About the Founders</a>
         <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="reviews.html">Customer Reviews</a>
         <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#process">How It's Dipped</a>
-        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#feedback">Your Feedback</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="forms.html">Your Feedback</a>
         <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="index.html#find-us">How to Order</a>
       </div>
 
@@ -390,43 +337,7 @@
     </div>
   </footer>
 
-  <!-- MOBILE NAVIGATION DRAWER SCRIPT -->
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileDrawer = document.getElementById('mobile-drawer');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileDrawer.classList.toggle('open');
-    });
-  </script>
-
-  <!-- Clean URLs helper for live site -->
-  <script>
-    if (window.location.protocol.startsWith('http')) {
-      // 1. Strip index.html from URL path in the address bar if present
-      if (window.location.pathname.endsWith('/index.html')) {
-        const newPath = window.location.pathname.slice(0, -10) + window.location.search + window.location.hash;
-        window.history.replaceState(null, '', newPath);
-      }
-      
-      // 2. Clean up navbar/footer links on page load
-      document.querySelectorAll('a').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href) {
-          if (href.startsWith('index.html#')) {
-            link.setAttribute('href', href.replace('index.html#', '/#'));
-          } else if (href === 'index.html') {
-            link.setAttribute('href', '/');
-          } else if (href === 'about.html') {
-            link.setAttribute('href', '/about');
-          } else if (href === 'reviews.html') {
-            link.setAttribute('href', '/reviews');
-          }
-        }
-      });
-    }
-  </script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>

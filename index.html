@@ -53,166 +53,7 @@
     };
   </script>
 
-  <style>
-    /* ─── Base Styles ───────────────────────────────────── */
-    body {
-      background-color: #fffdf6;
-      color: #32170d;
-      font-family: 'Outfit', sans-serif;
-    }
-
-    /* ─── Neo-Brutalist Solid Shadow Buttons & Cards ──────── */
-    .neo-btn {
-      border: 2px solid #32170d;
-      box-shadow: 4px 4px 0px 0px #32170d;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      cursor: pointer;
-    }
-    .neo-btn:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0px 0px #32170d;
-    }
-    .neo-btn:active {
-      transform: translate(4px, 4px);
-      box-shadow: 0px 0px 0px 0px #32170d;
-    }
-
-    .neo-card {
-      border: 3px solid #32170d;
-      box-shadow: 8px 8px 0px 0px #32170d;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .neo-card:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 10px 10px 0px 0px #32170d;
-    }
-
-    /* ─── Fruit-colored shadow cards ───────────────────── */
-    .neo-card-strawberry {
-      border: 3px solid #32170d;
-      box-shadow: 8px 8px 0px 0px #ff1f5e;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .neo-card-strawberry:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 10px 10px 0px 0px #ff1f5e;
-    }
-
-    .neo-card-blueberry {
-      border: 3px solid #32170d;
-      box-shadow: 8px 8px 0px 0px #3b82f6;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .neo-card-blueberry:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 10px 10px 0px 0px #3b82f6;
-    }
-
-    .neo-card-banana {
-      border: 3px solid #32170d;
-      box-shadow: 8px 8px 0px 0px #fbbf24;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .neo-card-banana:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 10px 10px 0px 0px #fbbf24;
-    }
-
-    .neo-card-apple {
-      border: 3px solid #32170d;
-      box-shadow: 8px 8px 0px 0px #22c55e;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .neo-card-apple:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 10px 10px 0px 0px #22c55e;
-    }
-
-    .neo-card-mango {
-      border: 3px solid #32170d;
-      box-shadow: 8px 8px 0px 0px #ff9f1c;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .neo-card-mango:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 10px 10px 0px 0px #ff9f1c;
-    }
-
-    /* ─── Infinite CSS Marquee Ticker ────────────────────── */
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-marquee {
-      display: flex;
-      width: max-content;
-      animation: marquee 25s linear infinite;
-    }
-    .animate-marquee:hover {
-      animation-play-state: paused;
-    }
-
-    /* ─── Float animation ───────────────────────────────── */
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50%      { transform: translateY(-15px) rotate(1.5deg); }
-    }
-    .animate-float { animation: float 6s ease-in-out infinite; }
-
-    /* ─── Pulse animation ───────────────────────────────── */
-    @keyframes pulse-sticker {
-      0%, 100% { transform: scale(1) rotate(6deg); }
-      50%      { transform: scale(1.05) rotate(10deg); }
-    }
-    .animate-sticker { animation: pulse-sticker 3s ease-in-out infinite; }
-
-    /* ─── Scroll reveal ─────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-
-    /* ─── Skip link ─────────────────────────────────────── */
-    .skip-link {
-      position: absolute; top: -999px; left: 1rem;
-      background: #32170d; color: #fff;
-      padding: .5rem 1rem; border-radius: 0 0 8px 8px;
-      font-weight: 700; z-index: 9999;
-    }
-    .skip-link:focus { top: 0; }
-
-    /* ─── Hide scrollbar on product rail ────────────────── */
-    .scroll-hide { scrollbar-width: none; -ms-overflow-style: none; }
-    .scroll-hide::-webkit-scrollbar { display: none; }
-
-    /* ─── Mobile drawer ─────────────────────────────────── */
-    #mobile-drawer {
-      max-height: 0; overflow: hidden;
-      transition: max-height .4s cubic-bezier(0.22, 1, 0.36, 1),
-                  opacity .3s ease;
-      opacity: 0;
-    }
-    #mobile-drawer.open { max-height: 480px; opacity: 1; }
-
-    /* ─── Hamburger Menu Lines ─────────────────────────── */
-    .ham-line {
-      display: block; width: 22px; height: 2px;
-      background: #32170d; border-radius: 2px;
-      transition: transform .3s ease, opacity .2s ease;
-      transform-origin: center;
-    }
-    #hamburger.open .ham-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    #hamburger.open .ham-line:nth-child(2) { opacity: 0; }
-    #hamburger.open .ham-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* ─── Drag-to-scroll cursor feedback ───────────────────── */
-    #product-rail { cursor: grab; }
-    #product-rail.dragging { cursor: grabbing; }
-    #product-rail.dragging .product-card { pointer-events: none; }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="bg-background text-primary selection:bg-strawberry-vibrant selection:text-white">
@@ -225,10 +66,10 @@
   <div class="overflow-hidden whitespace-nowrap bg-primary text-white py-2.5 border-b-2 border-primary select-none">
     <div class="animate-marquee flex gap-8 font-body font-black text-[11px] tracking-widest uppercase">
       <span>🚀 FIRST BATCH FRESHLY DIPPED & AVAILABLE NOW! ORDER VIA TEXT: (281) 730-4810</span>
-      <span>🍓 100% REAL FRUIT & PREMIUM DARK CHOCOLATE</span>
+      <span>🍓 100% REAL FRUIT & PREMIUM MILK CHOCOLATE</span>
       <span>⚡ HOUSTON LOCAL PICKUP & DELIVERY</span>
       <span>🚀 FIRST BATCH FRESHLY DIPPED & AVAILABLE NOW! ORDER VIA TEXT: (281) 730-4810</span>
-      <span>🍓 100% REAL FRUIT & PREMIUM DARK CHOCOLATE</span>
+      <span>🍓 100% REAL FRUIT & PREMIUM MILK CHOCOLATE</span>
       <span>⚡ HOUSTON LOCAL PICKUP & DELIVERY</span>
     </div>
   </div>
@@ -304,7 +145,7 @@
             <span class="text-strawberry-vibrant">Fully Obsessed.</span>
           </h1>
           <p class="font-body text-lg md:text-xl text-primary/80 mb-8 max-w-lg leading-relaxed">
-            Freeze-dried fruits artisanal dipped in rich dark chocolate. One single bag packed with a mix of all 5 fruits so you get the ultimate flavor crunch!
+            Freeze-dried fruits artisanal dipped in rich milk chocolate. One single bag packed with a mix of all 5 fruits so you get the ultimate flavor crunch!
           </p>
 
           <!-- Pricing Block (Poppi style bento badge) -->
@@ -408,7 +249,7 @@
               <span class="material-symbols-outlined text-[32px]" aria-hidden="true">format_color_fill</span>
             </div>
             <h3 class="font-display text-2xl font-black text-primary mb-3">3. Half-Dipped</h3>
-            <p class="font-body text-primary/80 leading-relaxed">We dip half the fruit in dark chocolate so the real fruit flavor shines. Blueberries get fully coated!</p>
+            <p class="font-body text-primary/80 leading-relaxed">We dip half the fruit in milk chocolate so the real fruit flavor shines. Blueberries get fully coated!</p>
           </div>
 
           <!-- Step 4 -->
@@ -453,9 +294,9 @@
             <img class="product-img w-full h-full object-cover" src="images/blueberries.png" alt="Chocolate covered freeze dried blueberries" />
             <span class="absolute top-4 right-4 px-3 py-1 bg-primary text-white rounded-full font-body font-black text-[9px] uppercase tracking-wider border border-primary">Whole Coated</span>
           </div>
-          <h3 class="font-display text-2xl font-black text-primary mb-1">Dark Choc Blueberries</h3>
+          <h3 class="font-display text-2xl font-black text-primary mb-1">Milk Choc Blueberries</h3>
           <p class="text-strawberry-vibrant text-xs font-extrabold mb-3">🫐 Our only fully-covered fruit!</p>
-          <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">Whole freeze-dried blueberries entirely coated in premium dark chocolate. A sweet-tart crunch pop.</p>
+          <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">Whole freeze-dried blueberries entirely coated in premium milk chocolate. A sweet-tart crunch pop.</p>
           <div class="flex justify-between items-center">
             <span class="font-display text-xs font-black text-primary/60 uppercase tracking-widest">In the Mix</span>
             <a href="#find-us" class="neo-btn bg-strawberry-vibrant text-white px-5 py-2 rounded-full font-body font-black text-xs uppercase tracking-wider">Order Mix</a>
@@ -469,7 +310,7 @@
             <span class="absolute top-4 right-4 px-3 py-1 bg-strawberry-vibrant text-white rounded-full font-body font-black text-[9px] uppercase tracking-wider border border-primary">Best Seller</span>
           </div>
           <h3 class="font-display text-2xl font-black text-primary mb-1">Ruby Strawberries</h3>
-          <p class="text-primary/55 text-xs font-bold mb-3">🍓 ½ dipped in dark chocolate</p>
+          <p class="text-primary/55 text-xs font-bold mb-3">🍓 ½ dipped in milk chocolate</p>
           <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">Vibrant strawberry slices half-dipped to show off their gorgeous red center. Sweet, tart, and classic.</p>
           <div class="flex justify-between items-center">
             <span class="font-display text-xs font-black text-primary/60 uppercase tracking-widest">In the Mix</span>
@@ -484,7 +325,7 @@
             <span class="absolute top-4 right-4 px-3 py-1 bg-banana-yellow text-primary rounded-full font-body font-black text-[9px] uppercase tracking-wider border border-primary">Super Creamy</span>
           </div>
           <h3 class="font-display text-2xl font-black text-primary mb-1">Velvet Banana</h3>
-          <p class="text-primary/55 text-xs font-bold mb-3">🍌 ½ dipped in dark chocolate</p>
+          <p class="text-primary/55 text-xs font-bold mb-3">🍌 ½ dipped in milk chocolate</p>
           <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">Smooth banana slices freeze-dried and dipped halfway. Rich, creamy, and surprisingly light.</p>
           <div class="flex justify-between items-center">
             <span class="font-display text-xs font-black text-primary/60 uppercase tracking-widest">In the Mix</span>
@@ -499,7 +340,7 @@
             <span class="absolute top-4 right-4 px-3 py-1 bg-mint-green text-white rounded-full font-body font-black text-[9px] uppercase tracking-wider border border-primary">Super Crunchy</span>
           </div>
           <h3 class="font-display text-2xl font-black text-primary mb-1">Crispy Apple Slices</h3>
-          <p class="text-primary/55 text-xs font-bold mb-3">🍎 ½ dipped in dark chocolate</p>
+          <p class="text-primary/55 text-xs font-bold mb-3">🍎 ½ dipped in milk chocolate</p>
           <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">The crunchiest slice in the house. A perfect balance of sweet red apples and chocolate snaps.</p>
           <div class="flex justify-between items-center">
             <span class="font-display text-xs font-black text-primary/60 uppercase tracking-widest">In the Mix</span>
@@ -514,8 +355,8 @@
             <span class="absolute top-4 right-4 px-3 py-1 bg-mango-orange text-white rounded-full font-body font-black text-[9px] uppercase tracking-wider border border-primary">Tropical Escape</span>
           </div>
           <h3 class="font-display text-2xl font-black text-primary mb-1">Golden Mango</h3>
-          <p class="text-primary/55 text-xs font-bold mb-3">🥭 ½ dipped in dark chocolate</p>
-          <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">Sweet, sun-ripened mango chunks meeting rich dark chocolate. It's like a tropical holiday snack.</p>
+          <p class="text-primary/55 text-xs font-bold mb-3">🥭 ½ dipped in milk chocolate</p>
+          <p class="font-body text-sm text-primary/80 mb-6 leading-relaxed">Sweet, sun-ripened mango chunks meeting rich milk chocolate. It's like a tropical holiday snack.</p>
           <div class="flex justify-between items-center">
             <span class="font-display text-xs font-black text-primary/60 uppercase tracking-widest">In the Mix</span>
             <a href="#find-us" class="neo-btn bg-strawberry-vibrant text-white px-5 py-2 rounded-full font-body font-black text-xs uppercase tracking-wider">Order Mix</a>
@@ -630,7 +471,7 @@
               We're two friends — **Michael** and **Timothy Shim** — who had a simple question late one night: <em>Why can't healthy fruit snacks taste like an actual dessert?</em>
             </p>
             <p class="font-body text-base md:text-lg text-primary/80 mb-8 leading-relaxed">
-              We grabbed a bag of freeze-dried strawberries, melted some high-quality dark chocolate, and dipped them halfway. The contrast of the airy, tart fruit crunch with the rich cocoa snap was pure magic. We knew we had to share it.
+              We grabbed a bag of freeze-dried strawberries, melted some high-quality milk chocolate, and dipped them halfway. The contrast of the airy, tart fruit crunch with the rich cocoa snap was pure magic. We knew we had to share it.
             </p>
             <p class="font-body text-sm font-bold text-strawberry-vibrant mb-10">
               ⚡ This is our very first batch! We're selling locally and we'd love for you to try it and tell us what you think.
@@ -705,7 +546,7 @@
                 <div class="flex text-mango-orange mb-3" aria-label="5 stars">
                   <span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span>
                 </div>
-                <p class="font-body text-sm font-bold text-primary leading-relaxed">"Absolute Life saver for after school snacks!!! My kids love the mango chunks and I feel good knowing it is just real fruit and dark chocolate... Worth every penny, ordering two more bags today!"</p>
+                <p class="font-body text-sm font-bold text-primary leading-relaxed">"Absolute Life saver for after school snacks!!! My kids love the mango chunks and I feel good knowing it is just real fruit and milk chocolate... Worth every penny, ordering two more bags today!"</p>
                 <div class="absolute bottom-[-8px] left-8 w-4 h-4 bg-[#fef9c3] border-r-2 border-b-2 border-primary rotate-45"></div>
               </div>
               <div class="flex items-center gap-3 mt-4 px-4">
@@ -714,13 +555,13 @@
               </div>
             </div>
 
-            <!-- 3: Emma R. — Dark chocolate (Purple Bubble) - College Student -->
+            <!-- 3: Emma R. — Milk chocolate (Purple Bubble) - College Student -->
             <div class="flex-shrink-0 w-[260px] md:w-[350px]">
               <div class="relative bg-[#f3e8ff] border-2 border-primary rounded-[32px] p-5 md:p-6 shadow-[4px_4px_0px_0px_#32170d]">
                 <div class="flex text-mango-orange mb-3" aria-label="5 stars">
                   <span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span>
                 </div>
-                <p class="font-body text-sm font-bold text-primary leading-relaxed">"tbh i was skeptical but these are pretty good. the dark chocolate is actually decent and doesn't taste cheap. lowkey saved me during midterms week"</p>
+                <p class="font-body text-sm font-bold text-primary leading-relaxed">"tbh i was skeptical but these are pretty good. the milk chocolate is actually decent and doesn't taste cheap. lowkey saved me during midterms week"</p>
                 <div class="absolute bottom-[-8px] left-8 w-4 h-4 bg-[#f3e8ff] border-r-2 border-b-2 border-primary rotate-45"></div>
               </div>
               <div class="flex items-center gap-3 mt-4 px-4">
@@ -735,7 +576,7 @@
                 <div class="flex text-mango-orange mb-3" aria-label="5 stars">
                   <span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span>
                 </div>
-                <p class="font-body text-sm font-bold text-primary leading-relaxed">"Highly recommend! The chocolate-covered blueberries are a huge hit in our house... GREAT quality dark chocolate and perfect crunch. Such a clean treat!"</p>
+                <p class="font-body text-sm font-bold text-primary leading-relaxed">"Highly recommend! The chocolate-covered blueberries are a huge hit in our house... GREAT quality milk chocolate and perfect crunch. Such a clean treat!"</p>
                 <div class="absolute bottom-[-8px] left-8 w-4 h-4 bg-[#dbeafe] border-r-2 border-b-2 border-primary rotate-45"></div>
               </div>
               <div class="flex items-center gap-3 mt-4 px-4">
@@ -765,7 +606,7 @@
                 <div class="flex text-mango-orange mb-3" aria-label="5 stars">
                   <span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined font-black" style="font-variation-settings:'FILL' 1;">star</span>
                 </div>
-                <p class="font-body text-sm font-bold text-primary leading-relaxed">"My kids love the banana slices!!! Perfect for packing in their school lunches... Excellent dark chocolate temper too, doesn't melt in their hands instantly. Life saver!"</p>
+                <p class="font-body text-sm font-bold text-primary leading-relaxed">"My kids love the banana slices!!! Perfect for packing in their school lunches... Excellent milk chocolate temper too, doesn't melt in their hands instantly. Life saver!"</p>
                 <div class="absolute bottom-[-8px] left-8 w-4 h-4 bg-[#ffe4e6] border-r-2 border-b-2 border-primary rotate-45"></div>
               </div>
               <div class="flex items-center gap-3 mt-4 px-4">
@@ -781,13 +622,10 @@
         <div class="text-center reveal">
           <p class="font-body text-lg font-bold text-primary/70 mb-6">Bought a bag? Tell us your thoughts!</p>
           <a id="feedback-btn"
-             href="https://docs.google.com/forms/d/e/1FAIpQLScVAN7t5SP-nsBPqnw085-t6jkTP6iA66AwhN5-D_9RAkD3EQ/viewform?usp=header"
-             target="_blank"
-             rel="noopener noreferrer"
+             href="forms.html"
              class="neo-btn inline-flex items-center gap-3 bg-strawberry-vibrant text-white px-10 py-5 rounded-full font-body font-black text-lg uppercase tracking-wider">
             <span class="material-symbols-outlined" aria-hidden="true">rate_review</span>
             Leave Us Feedback
-            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">open_in_new</span>
           </a>
           <p class="mt-4 font-body text-xs text-primary/50 font-bold">Takes less than 90 seconds · shaping our next batch!</p>
         </div>
@@ -925,7 +763,7 @@
         <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="about.html">About the Founders</a>
         <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="reviews.html">Customer Reviews</a>
         <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#process">How It's Dipped</a>
-        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#feedback">Your Feedback</a>
+        <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="forms.html">Your Feedback</a>
         <a class="font-body text-sm font-bold text-primary/75 hover:text-strawberry-vibrant transition-colors" href="#find-us">How to Order</a>
       </div>
 
@@ -961,194 +799,7 @@
   <!-- ══════════════════════════════════════════════════
        SCRIPTS
   ══════════════════════════════════════════════════ -->
-  <script>
-    /* ─── Scroll Reveal ─────────────────────────────────── */
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => {
-      if (!el.classList.contains('active')) revealObserver.observe(el);
-    });
-
-    /* ─── Smooth Scroll with Offset ────────────────────── */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        const target = document.querySelector(targetId);
-        if (target) {
-          e.preventDefault();
-          const offset = 90;
-          window.scrollTo({
-            top: target.getBoundingClientRect().top + window.scrollY - offset,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    /* ─── Mobile Nav Drawer Toggle ─────────────────────── */
-    const hamburger    = document.getElementById('hamburger');
-    const mobileDrawer = document.getElementById('mobile-drawer');
-
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileDrawer.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileDrawer.classList.remove('open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    /* ─── Drag-to-scroll on product rail ───────────────────── */
-    /* ─── Infinite auto-rotating product lineup carousel ────── */
-    (function () {
-      const wrapper = document.getElementById('product-wrapper');
-      const rail    = document.getElementById('product-rail');
-      if (!wrapper || !rail) return;
-
-      // Clone all cards once so the strip is 2x wide (seamless loop)
-      Array.from(rail.children).forEach(card => {
-        const clone = card.cloneNode(true);
-        // Clones must be immediately active and visible (bypass scroll-reveal opacity 0)
-        clone.classList.remove('reveal');
-        clone.classList.add('active');
-        rail.appendChild(clone);
-      });
-
-      let pos        = 0;
-      let halfWidth  = 0;
-      let isDragging = false;
-      let lastX      = 0;
-      const SPEED    = 0.3; // Glide slightly slower for readability
-
-      // Use ResizeObserver to measure width dynamically (handles image loads and screen resizing)
-      const resizeObserver = new ResizeObserver(() => {
-        halfWidth = rail.scrollWidth / 2;
-      });
-      resizeObserver.observe(rail);
-
-      function loop() {
-        if (!isDragging) pos += SPEED;
-        if (halfWidth > 0 && pos >= halfWidth) pos -= halfWidth;
-        if (pos < 0) pos += halfWidth;
-        rail.style.transform = `translateX(${-pos}px)`;
-        requestAnimationFrame(loop);
-      }
-      requestAnimationFrame(loop);
-
-      // Click+drag -> track mouse
-      wrapper.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        lastX      = e.pageX;
-        wrapper.style.cursor = 'grabbing';
-        e.preventDefault();
-      });
-
-      window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        pos  -= (e.pageX - lastX);
-        lastX = e.pageX;
-      });
-
-      window.addEventListener('mouseup', () => {
-        if (!isDragging) return;
-        isDragging           = false;
-        wrapper.style.cursor = 'grab';
-      });
-    })();
-
-    /* ─── Infinite auto-rotating reviews carousel ───────────── */
-    (function () {
-      const wrapper    = document.getElementById('reviews-wrapper');
-      const reviewRail = document.getElementById('reviews-rail');
-      if (!wrapper || !reviewRail) return;
-
-      // Clone all cards once so the strip is 2x wide (seamless loop)
-      Array.from(reviewRail.children).forEach(card => {
-        reviewRail.appendChild(card.cloneNode(true));
-      });
-
-      let pos         = 0;
-      let halfWidth   = 0;
-      let revDragging = false;  // click+drag -> track mouse
-      let revLastX    = 0;
-      const SPEED     = 0.5;    // px per frame
-
-      // Use ResizeObserver to measure width dynamically (handles resizing)
-      const resizeObserver = new ResizeObserver(() => {
-        halfWidth = reviewRail.scrollWidth / 2;
-      });
-      resizeObserver.observe(reviewRail);
-
-      function loop() {
-        if (!revDragging) pos += SPEED;
-        if (halfWidth > 0 && pos >= halfWidth) pos -= halfWidth;
-        if (pos < 0) pos += halfWidth;
-        reviewRail.style.transform = `translateX(${-pos}px)`;
-        requestAnimationFrame(loop);
-      }
-      requestAnimationFrame(loop);
-
-      // Click+drag -> track mouse
-      wrapper.addEventListener('mousedown', (e) => {
-        revDragging = true;
-        revLastX    = e.pageX;
-        wrapper.style.cursor = 'grabbing';
-        e.preventDefault();
-      });
-
-      window.addEventListener('mousemove', (e) => {
-        if (!revDragging) return;
-        pos     -= (e.pageX - revLastX);
-        revLastX = e.pageX;
-      });
-
-      window.addEventListener('mouseup', () => {
-        if (!revDragging) return;
-        revDragging          = false;
-        wrapper.style.cursor = 'grab';
-      });
-    })();
-  </script>
-
-  <!-- Clean URLs helper for live site -->
-  <script>
-    if (window.location.protocol.startsWith('http')) {
-      // 1. Strip index.html from URL path in the address bar if present
-      if (window.location.pathname.endsWith('/index.html')) {
-        const newPath = window.location.pathname.slice(0, -10) + window.location.search + window.location.hash;
-        window.history.replaceState(null, '', newPath);
-      }
-      
-      // 2. Clean up navbar/footer links on page load
-      document.querySelectorAll('a').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href) {
-          if (href.startsWith('index.html#')) {
-            link.setAttribute('href', href.replace('index.html#', '/#'));
-          } else if (href === 'index.html') {
-            link.setAttribute('href', '/');
-          } else if (href === 'about.html') {
-            link.setAttribute('href', '/about');
-          } else if (href === 'reviews.html') {
-            link.setAttribute('href', '/reviews');
-          }
-        }
-      });
-    }
-  </script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>
